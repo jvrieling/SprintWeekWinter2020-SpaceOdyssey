@@ -26,8 +26,6 @@ public class PlayerController : MonoBehaviour
 
         motor.HandleMovementInput(input);
 
-        Debug.Log(Input.GetAxisRaw("Fire1"));
-
         if (Input.GetAxisRaw("Fire1") == 1 && canShoot)
         {
             shootEvent.Invoke();
