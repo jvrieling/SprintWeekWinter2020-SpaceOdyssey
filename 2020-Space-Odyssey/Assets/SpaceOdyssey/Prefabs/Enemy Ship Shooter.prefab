@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
-  objectType: 
+  objectType: enemy
 --- !u!114 &887261995045832079
 MonoBehaviour:
   m_ObjectHideFlags: 0
