@@ -5,8 +5,14 @@ using UnityEngine;
 public class DestroyAfterTime : MonoBehaviour
 {
     public float timeToDestroy = 0f;
+    private AudioSource audioSource;
+    private void Start()
+    {
+        audioSource = gameObject.GetComponent<AudioSource>();
+        //audioSource.pitch = Random.Range(0.5f, 1f);
+        audioSource.Play();
 
-    
+    }
     void Update()
     {
         if(timeToDestroy <= 0)
