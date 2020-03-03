@@ -11,15 +11,20 @@ using UnityEngine;
 public class ShootAtPlayer : MonoBehaviour
 {
     [SerializeField]
-    private float bulletVelocityMultiplier;
+    private float bulletVelocityMultiplier = 1;
 
-    //Times are in seconds.
+    private float currentFiringCooldown; //Time in seconds
     [SerializeField]
-    private float currentFiringCooldown, maxFiringCooldown;
+    private float maxFiringCooldown; //Time in seconds
+
+    [SerializeField]
+    [Range(0,1)]
+    private float initialFiringCooldownMultiplier; //A ratio of the maxFiringCooldown.
 
     [SerializeField]
     private GameObject bulletPrefab;
 
+    //GameObject that it will shoot at.
     private GameObject targetObject;
 
 
@@ -32,6 +37,8 @@ public class ShootAtPlayer : MonoBehaviour
         //REPLACE LATER; DONT USE TAG CHECKS
         if (!targetObject)
             targetObject = GameObject.FindGameObjectWithTag("Player");
+
+        currentFiringCooldown = maxFiringCooldown * initialFiringCooldownMultiplier;
     }
 
     void Update()
@@ -41,7 +48,9 @@ public class ShootAtPlayer : MonoBehaviour
         else
         {
             currentFiringCooldown = 0;
-            FireBullet(transform, targetObject.transform);
+
+            if (targetObject != null)
+                FireBullet(transform, targetObject.transform, new Vector3(0,-2));
         }
 
     }
@@ -51,9 +60,9 @@ public class ShootAtPlayer : MonoBehaviour
      * Gets the directional vector between a start and end position,
      * and instantiates a prefab with a static velocity.
      */
-    void FireBullet(Transform startPosition, Transform endPosition)
+    void FireBullet(Transform startPosition, Transform endPosition, Vector3 redirectVector)
     {
-        Vector3 direction = endPosition.position - startPosition.position;
+        Vector3 direction = endPosition.position - (startPosition.position + redirectVector);
         Vector3 normalizedDirection = direction.normalized;
 
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity, transform);
