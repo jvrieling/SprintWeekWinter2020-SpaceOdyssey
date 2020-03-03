@@ -831,5 +831,10 @@ PrefabInstance:
       propertyPath: maxBullets
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7778966281678474067, guid: 56158c2410b9baf48b69097ab4c0aa63,
+        type: 3}
+      propertyPath: objectManager
+      value: 
+      objectReference: {fileID: 883173591}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56158c2410b9baf48b69097ab4c0aa63, type: 3}
