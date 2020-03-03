@@ -25,20 +25,24 @@ public class ExplodeOnTrigger : MonoBehaviour
         foreach (string i in collisionTags)
         {
             if (i == collision.gameObject.tag)
-
             {
-
+                Bullet collBullet = null;
+                collBullet = collision.GetComponent<Bullet>();
+                if (collBullet != null)
+                {
+                    collBullet.RemoveHp(1);
+                }
                 GameObject temp;
                 if (explosionPrefab)
                 {
                     temp = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
                     temp.transform.localScale = new Vector3(explosionScale, explosionScale, 1);
-                    
+                   
                 }
                 
-                //*
-                if (gameObject.tag != "Player")
-                    Destroy(gameObject);
+                
+                }                
+                Destroy(gameObject);
             }
         }
     }

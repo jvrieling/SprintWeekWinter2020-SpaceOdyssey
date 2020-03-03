@@ -8,4 +8,10 @@ public class KillZone : MonoBehaviour
     {
         Destroy(collision.gameObject);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        collision.gameObject.GetComponent<Object>().owner.RemoveEnemy(collision.gameObject.GetComponent<MoveDownScreen>());
+
+        Destroy(collision.gameObject);
+    }
 }
