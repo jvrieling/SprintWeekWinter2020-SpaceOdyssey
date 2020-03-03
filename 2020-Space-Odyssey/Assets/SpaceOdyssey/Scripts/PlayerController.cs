@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public ObjectManager objectManager;
 
     public GameObject bulletPrefab;
-    private bool canShoot = true;
+    public bool canShoot = true;
     public List<PlayerBullet> bullets;
     public int maxBullets;
 
@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
         motor = GetComponent<ShipMotor>();
         bullets = new List<PlayerBullet>();
     }
-
+    public bool Getbool()
+    { return canShoot; }
 
     void Update()
     {
@@ -39,6 +40,8 @@ public class PlayerController : MonoBehaviour
             tempBullet.name = "Player Bullet";
             tempBullet.GetComponent<PlayerBullet>().owner = this;
             objectManager.playerBullets.Add(tempBullet.GetComponent<PlayerBullet>());
+            bullets.Add(tempBullet.GetComponent<PlayerBullet>());
+            AudioManager.instance.Play("Laser");
         }
         else if (Input.GetAxisRaw("Fire1") == 0)
         {
