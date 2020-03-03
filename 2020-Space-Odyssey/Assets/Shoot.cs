@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    public AudioClip audioClip;
-    public AudioSource pewpew;
+      
+    private AudioSource audioSource;
+    public AudioClip[] shoot;
+    private AudioClip shootClip;
+
     // Start is called before the first frame update
     void Start()
     {
-        pewpew.clip = audioClip;
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -17,7 +20,13 @@ public class Shoot : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            pewpew.PlayOneShot(audioClip);
+            int index = Random.Range(0, shoot.Length);
+            shootClip = shoot[index];
+
+            audioSource.clip = shootClip;
+            audioSource.Play();
         }
     }
 }
+
+

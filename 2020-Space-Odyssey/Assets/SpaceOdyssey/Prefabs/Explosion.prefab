@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2278930086473729672}
   - component: {fileID: 2209518655477985574}
   - component: {fileID: -1831811521238772440}
+  - component: {fileID: -2062106862914460365}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -113,7 +114,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 0
+  Priority: 127
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -191,3 +192,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!165 &-2062106862914460365
+AudioHighPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2209518655477985575}
+  m_Enabled: 1
+  m_CutoffFrequency: 1437
+  m_HighpassResonanceQ: 1
