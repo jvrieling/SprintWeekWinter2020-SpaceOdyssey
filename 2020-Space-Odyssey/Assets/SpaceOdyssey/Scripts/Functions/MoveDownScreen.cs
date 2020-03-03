@@ -22,4 +22,9 @@ public class MoveDownScreen : MonoBehaviour
     {
         transform.Translate(new Vector3(0, -moveSpeed, 0)*Time.deltaTime);
     }
+
+    public void UpdateMoveSpeed(float newSpeed)
+    {
+        moveSpeed = newSpeed;
+    }
 }
