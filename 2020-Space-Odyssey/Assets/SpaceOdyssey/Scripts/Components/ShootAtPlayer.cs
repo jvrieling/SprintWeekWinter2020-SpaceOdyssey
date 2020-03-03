@@ -17,15 +17,16 @@ public class ShootAtPlayer : MonoBehaviour
 
     private float currentFiringCooldown; //Time in seconds
     [SerializeField]
-    private float maxFiringCooldown; //Time in seconds
+    private float maxFiringCooldown = 1; //Time in seconds
 
     [SerializeField]
     [Range(0,1)]
-    private float initialFiringCooldownMultiplier; //A ratio of the maxFiringCooldown.
+    private float initialFiringCooldownMultiplier = 0; //A ratio of the maxFiringCooldown.
 
+    [Header("READ ONLY")]
     [SerializeField]
     private GameObject bulletPrefab;
-    
+    [SerializeField]
     private GameObject targetObject; //GameObject that it will shoot at.
 
 

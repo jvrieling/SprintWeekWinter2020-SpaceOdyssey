@@ -21,7 +21,7 @@ public class ExplodeOnTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
         foreach (string i in collisionTags)
         {
             if (i == collision.gameObject.tag)
@@ -37,10 +37,13 @@ public class ExplodeOnTrigger : MonoBehaviour
                 {
                     temp = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
                     temp.transform.localScale = new Vector3(explosionScale, explosionScale, 1);
-                    
-                }                
-                Destroy(gameObject);
+
+                }
+
+                if (gameObject.tag != "Player")
+                    Destroy(gameObject);
             }
         }
     }
 }
+
