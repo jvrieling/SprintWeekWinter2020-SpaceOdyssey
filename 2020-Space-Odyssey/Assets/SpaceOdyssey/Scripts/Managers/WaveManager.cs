@@ -50,6 +50,7 @@ public class WaveManager : MonoBehaviour
         yield return new WaitForSeconds(delayBeforeNextWave);
 
         enemySpawner.enemiesPerSecond = maxNumberOfEnemies;
+        enemySpawner.timeBetweenEnemies = 10 / enemySpawner.enemiesPerSecond;
 
         enemySpawner.canSpawnEnemies = true;
 
