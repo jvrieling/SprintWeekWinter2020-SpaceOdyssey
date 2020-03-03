@@ -10,6 +10,15 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
 
+    public int currentWave;
+
+
+    public int currentNumberOfEnemies;
+    public int maxNumberOfEnemies;
+
+    public EnemySpawner enemySpawner;
+
+
     void Start()
     {
         
@@ -17,6 +26,33 @@ public class WaveManager : MonoBehaviour
 
     void Update()
     {
-        
+        if (currentNumberOfEnemies >= maxNumberOfEnemies)
+        {
+            enemySpawner.canSpawnEnemies = false;
+
+            StartCoroutine("SetNewWave");
+        }
+    }
+
+    IEnumerator SetNewWave()
+    {
+        currentNumberOfEnemies = 0;
+
+        currentWave++;
+
+        int baseEnemyCount = 10;
+        int enemiesPerWave = 5;
+
+        maxNumberOfEnemies = baseEnemyCount + enemiesPerWave * currentWave;
+
+        float delayBeforeNextWave = 5f;
+
+        yield return new WaitForSeconds(delayBeforeNextWave);
+
+        enemySpawner.enemiesPerSecond = maxNumberOfEnemies;
+
+        enemySpawner.canSpawnEnemies = true;
+
+        yield return null;
     }
 }
