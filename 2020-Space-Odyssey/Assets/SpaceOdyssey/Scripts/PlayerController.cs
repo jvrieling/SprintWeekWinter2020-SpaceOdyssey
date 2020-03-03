@@ -6,7 +6,9 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public bool canShoot = true;
+    private bool canShoot = true;
+    public List<PlayerBullet> bullets;
+    public int maxBullets;
 
     private ShipMotor motor;
 
@@ -16,6 +18,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         motor = GetComponent<ShipMotor>();
+        bullets = new List<PlayerBullet>();
     }
 
 
@@ -26,11 +29,14 @@ public class PlayerController : MonoBehaviour
 
         motor.HandleMovementInput(input);
 
-        if (Input.GetAxisRaw("Fire1") == 1 && canShoot)
+        if (Input.GetAxisRaw("Fire1") == 1 && canShoot && bullets.Count < maxBullets)
         {
             shootEvent.Invoke();
             canShoot = false;
-            Instantiate(bulletPrefab, transform.position, Quaternion.identity).gameObject.name = "Player Bullet";
+            GameObject tempBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            tempBullet.name = "Player Bullet";
+            tempBullet.GetComponent<PlayerBullet>().owner = this;
+            bullets.Add(tempBullet.GetComponent<PlayerBullet>());
         }
         else if (Input.GetAxisRaw("Fire1") == 0)
         {
@@ -44,6 +50,10 @@ public class PlayerController : MonoBehaviour
         {
             damageEvent.Invoke();
         }
+    }
+    public void DestroyBullet(PlayerBullet bullet)
+    {
+        bullets.Remove(bullet);
     }
 }
 
