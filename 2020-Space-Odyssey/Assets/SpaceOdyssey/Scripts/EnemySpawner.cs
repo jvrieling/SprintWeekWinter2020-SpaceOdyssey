@@ -17,6 +17,9 @@ public class EnemySpawner : MonoBehaviour
     private BoxCollider2D coll;
     private Bounds collBounds;
 
+    public WaveManager waveManager;
+    public bool canSpawnEnemies = true;
+
     private void Awake()
     {
         timeBetweenEnemies = 1 / enemiesPerSecond;
@@ -26,11 +29,17 @@ public class EnemySpawner : MonoBehaviour
 
     void Update()
     {
-        timeSinceLastEnemy += Time.deltaTime;   
+        timeSinceLastEnemy += Time.deltaTime;
+
+        if (!canSpawnEnemies)
+            return;
 
         if(timeSinceLastEnemy >= timeBetweenEnemies)
         {
             timeSinceLastEnemy = 0;
+
+            waveManager.currentNumberOfEnemies++;
+
             Vector3 spawnPos = new Vector3(
                 Random.Range(collBounds.min.x, collBounds.max.x),
                 Random.Range(collBounds.min.y, collBounds.max.y),
