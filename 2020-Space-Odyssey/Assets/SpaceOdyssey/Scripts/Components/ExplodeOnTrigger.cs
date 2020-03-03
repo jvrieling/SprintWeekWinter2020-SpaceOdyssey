@@ -16,7 +16,7 @@ public class ExplodeOnTrigger : MonoBehaviour
 
     private void Start()
     {
-        explo.clip = audioClip;
+        //explo.clip = audioClip;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
