@@ -12,6 +12,8 @@ public class ShootAtPlayer : MonoBehaviour
 {
     [SerializeField]
     private float bulletVelocityMultiplier = 1;
+    [SerializeField]
+    private float bulletSpreadRadius = 0;
 
     private float currentFiringCooldown; //Time in seconds
     [SerializeField]
@@ -23,9 +25,8 @@ public class ShootAtPlayer : MonoBehaviour
 
     [SerializeField]
     private GameObject bulletPrefab;
-
-    //GameObject that it will shoot at.
-    private GameObject targetObject;
+    
+    private GameObject targetObject; //GameObject that it will shoot at.
 
 
     void Start()
@@ -34,7 +35,7 @@ public class ShootAtPlayer : MonoBehaviour
             bulletPrefab = AssetDatabase.LoadAssetAtPath("Assets/SpaceOdyssey/Prefabs/EnemyBullet.prefab",
             typeof(GameObject)) as GameObject;
 
-        //REPLACE LATER; DONT USE TAG CHECKS
+        //REPLACE LATER WITH INDEX CHECK; DONT USE TAG CHECKS
         if (!targetObject)
             targetObject = GameObject.FindGameObjectWithTag("Player");
 
@@ -50,7 +51,7 @@ public class ShootAtPlayer : MonoBehaviour
             currentFiringCooldown = 0;
 
             if (targetObject != null)
-                FireBullet(transform, targetObject.transform, new Vector3(0,-2));
+                FireBullet(transform, targetObject.transform, bulletSpreadRadius);
         }
 
     }
@@ -59,13 +60,17 @@ public class ShootAtPlayer : MonoBehaviour
      * ------------
      * Gets the directional vector between a start and end position,
      * and instantiates a prefab with a static velocity.
+     * 
+     * A higher spreadRadius decreases the accuracy of the bullets.
      */
-    void FireBullet(Transform startPosition, Transform endPosition, Vector3 redirectVector)
+    void FireBullet(Transform startPosition, Transform endPosition, float spreadRadius)
     {
-        Vector3 direction = endPosition.position - (startPosition.position + redirectVector);
+        Vector3 direction = endPosition.position - 
+                           (startPosition.position + new Vector3(Random.Range(-1f,1f) * spreadRadius, Random.Range(-1f, 1f) * spreadRadius));
         Vector3 normalizedDirection = direction.normalized;
 
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity, transform);
+        bullet.transform.parent = null;
         bullet.GetComponent<Rigidbody2D>().velocity = normalizedDirection * bulletVelocityMultiplier;
     }
 }

@@ -82,6 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletVelocityMultiplier: 3
+  bulletSpreadRadius: 0
   maxFiringCooldown: 5
   initialFiringCooldownMultiplier: 0.5
   bulletPrefab: {fileID: 0}
