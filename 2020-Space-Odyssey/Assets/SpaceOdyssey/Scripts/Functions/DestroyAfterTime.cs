@@ -10,7 +10,7 @@ public class DestroyAfterTime : MonoBehaviour
     {
         audioSource = gameObject.GetComponent<AudioSource>();
         //audioSource.pitch = Random.Range(0.5f, 1f);
-        audioSource.Play();
+        AudioManager.instance.Play("PlayerDeath");
 
     }
     void Update()
