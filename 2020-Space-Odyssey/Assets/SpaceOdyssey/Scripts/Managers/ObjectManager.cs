@@ -7,15 +7,14 @@ public class ObjectManager : MonoBehaviour
     private ModifierManager modifiers;
 
     public List<MoveDownScreen> enemies;
-    public List<MoveDownScreen> bullets;
-    public PlayerController player;
-    public List<MoveDownScreen> playerBullets;
+    public List<EnemyBullet> bullets;
+    public List<PlayerBullet> playerBullets;
 
     private void Awake()
     {
         enemies = new List<MoveDownScreen>();
-        bullets = new List<MoveDownScreen>();
-        playerBullets = new List<MoveDownScreen>();       
+        bullets = new List<EnemyBullet>();
+        playerBullets = new List<PlayerBullet>();       
 
         modifiers = GetComponent<ModifierManager>();
     }
@@ -36,10 +35,21 @@ public class ObjectManager : MonoBehaviour
             enemies.Add(newEnemy);
         }
     }
+    public void RegisterEnemyBullet(EnemyBullet bullet)
+    {
+        if (!bullets.Contains(bullet))
+        {
+            bullets.Add(bullet);
+        }
+    }
 
     public void RemoveEnemy(MoveDownScreen enemy)
     {
         enemies.Remove(enemy);
+    }
+    public void RemoveEnemyBullet(EnemyBullet bullet)
+    {
+        bullets.Remove(bullet);
     }
 
 }

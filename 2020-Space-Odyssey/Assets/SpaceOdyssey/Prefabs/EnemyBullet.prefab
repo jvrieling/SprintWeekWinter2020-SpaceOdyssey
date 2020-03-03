@@ -9,11 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4952203565014493785}
+  - component: {fileID: 2039781147233440444}
+  - component: {fileID: 7137825690619734291}
   - component: {fileID: -1932849503618489309}
+  - component: {fileID: 2797410334937785493}
   - component: {fileID: 4952203565014493784}
   - component: {fileID: -8688652398840657365}
   - component: {fileID: 1864530575}
-  - component: {fileID: 2797410334937785493}
   m_Layer: 10
   m_Name: EnemyBullet
   m_TagString: EnemyBullet
@@ -35,6 +37,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2039781147233440444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4952203565014493786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bfba6c0c285fa448b4f7223e35be71a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
+  objectType: EnemyBullet
+--- !u!114 &7137825690619734291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4952203565014493786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7100926d6d39e44bbed35d9f366835, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-1932849503618489309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,7 +75,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de74fe066f3033b4ca808462ff786b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDestroy: 15
+  timeToDestroy: 5
+--- !u!114 &2797410334937785493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4952203565014493786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6829d4e19a8281d44ae43eeac92ad282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionTags:
+  - Player
 --- !u!212 &4952203565014493784
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -134,17 +176,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2797410334937785493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4952203565014493786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6829d4e19a8281d44ae43eeac92ad282, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionTags:
-  - Player

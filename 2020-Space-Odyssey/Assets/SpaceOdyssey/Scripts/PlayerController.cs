@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
+    public ObjectManager objectManager;
+
     public GameObject bulletPrefab;
     private bool canShoot = true;
     public List<PlayerBullet> bullets;
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour
             GameObject tempBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             tempBullet.name = "Player Bullet";
             tempBullet.GetComponent<PlayerBullet>().owner = this;
-            bullets.Add(tempBullet.GetComponent<PlayerBullet>());
+            objectManager.playerBullets.Add(tempBullet.GetComponent<PlayerBullet>());
         }
         else if (Input.GetAxisRaw("Fire1") == 0)
         {
@@ -53,7 +55,7 @@ public class PlayerController : MonoBehaviour
     }
     public void DestroyBullet(PlayerBullet bullet)
     {
-        bullets.Remove(bullet);
+        objectManager.playerBullets.Remove(bullet);
     }
 }
 

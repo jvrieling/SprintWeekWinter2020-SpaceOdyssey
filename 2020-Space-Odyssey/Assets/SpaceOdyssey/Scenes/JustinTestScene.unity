@@ -203,18 +203,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &667545562 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7778966281678474067, guid: 56158c2410b9baf48b69097ab4c0aa63,
-    type: 3}
-  m_PrefabInstance: {fileID: 7778966281465452191}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54b0b7763e694b741b1e1ceb95fc4a16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &709184915
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,7 +340,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies: []
   bullets: []
-  player: {fileID: 667545562}
   playerBullets: []
 --- !u!114 &883173592
 MonoBehaviour:
@@ -592,6 +579,7 @@ MonoBehaviour:
   enemiesPerSecond: 5
   enemyPrefabs:
   - {fileID: 887261995045832065, guid: 825330a03a101a7499778337dd31c313, type: 3}
+  - {fileID: 887261995045832065, guid: 559fa1c947999fa45bb39eedc1b8e2d7, type: 3}
   objects: {fileID: 883173591}
 --- !u!61 &2139137910
 BoxCollider2D:
