@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     public float enemiesPerSecond;
 
     public GameObject[] enemyPrefabs;
+    public ObjectManager objects;
 
     private float timeSinceLastEnemy;
     private float timeBetweenEnemies;
@@ -36,8 +37,10 @@ public class EnemySpawner : MonoBehaviour
                 Random.Range(collBounds.min.z, collBounds.max.z)
             );
 
-            MoveDownScreen tempEnemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], spawnPos, Quaternion.identity).GetComponent<MoveDownScreen>();
-            ObjectManager.instance.RegisterEnemy(tempEnemy);
+            MoveDownScreen tempEnemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], transform).GetComponent<MoveDownScreen>();
+            tempEnemy.gameObject.transform.position = spawnPos;
+            tempEnemy.gameObject.GetComponent<Object>().owner = objects;
+            objects.RegisterEnemy(tempEnemy);
         }
     }
 }

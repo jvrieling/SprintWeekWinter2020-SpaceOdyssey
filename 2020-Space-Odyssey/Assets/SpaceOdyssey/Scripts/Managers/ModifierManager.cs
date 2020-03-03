@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class ModifierManager : MonoBehaviour
 {
-    public static ModifierManager instance;
+    private ObjectManager objects;
 
     public bool fasterEnemies = false;
     public float speedMultiplier = 1.3f;
+    public string toggleFasterEnemies = "M";
 
     private void Awake()
     {
-        instance = this;
+        objects = GetComponent<ObjectManager>();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(toggleFasterEnemies))
         {
             ToggleFasterEnemies();
         }
@@ -27,11 +28,11 @@ public class ModifierManager : MonoBehaviour
         if (!fasterEnemies)
         {
             fasterEnemies = true;
-            ObjectManager.instance.MultiplyEnemySpeed(speedMultiplier);
+           objects.MultiplyEnemySpeed(speedMultiplier);
         } else
         {
             fasterEnemies = false;
-            ObjectManager.instance.MultiplyEnemySpeed(1);
+            objects.MultiplyEnemySpeed(1);
         }
     }
     public float GetSpeedMultiplier()

@@ -4,26 +4,25 @@ using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
 {
-    public static ObjectManager instance;
+    private ModifierManager modifiers;
 
     public List<MoveDownScreen> enemies;
     public List<MoveDownScreen> bullets;
-    public List<PlayerController> players;
+    public PlayerController player;
     public List<MoveDownScreen> playerBullets;
 
     private void Awake()
     {
-        instance = this;
-
         enemies = new List<MoveDownScreen>();
         bullets = new List<MoveDownScreen>();
-        playerBullets = new List<MoveDownScreen>();
-        players = new List<PlayerController>();
+        playerBullets = new List<MoveDownScreen>();       
+
+        modifiers = GetComponent<ModifierManager>();
     }
 
     public void MultiplyEnemySpeed(float multiplier)
     {
-        foreach(MoveDownScreen i in enemies)
+        foreach (MoveDownScreen i in enemies)
         {
             i.UpdateMoveSpeed(i.moveSpeed * multiplier);
         }
@@ -33,9 +32,14 @@ public class ObjectManager : MonoBehaviour
     {
         if (!enemies.Contains(newEnemy))
         {
-            newEnemy.UpdateMoveSpeed(newEnemy.moveSpeed * ModifierManager.instance.GetSpeedMultiplier());
+            newEnemy.UpdateMoveSpeed(newEnemy.moveSpeed * modifiers.GetSpeedMultiplier());
             enemies.Add(newEnemy);
         }
-    }  
+    }
+
+    public void RemoveEnemy(MoveDownScreen enemy)
+    {
+        enemies.Remove(enemy);
+    }
 
 }
