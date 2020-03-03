@@ -37,10 +37,7 @@ public class ExplodeOnTrigger : MonoBehaviour
                 {
                     temp = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
                     temp.transform.localScale = new Vector3(explosionScale, explosionScale, 1);
-                   
-                }
-                
-                
+                    
                 }                
                 Destroy(gameObject);
             }
