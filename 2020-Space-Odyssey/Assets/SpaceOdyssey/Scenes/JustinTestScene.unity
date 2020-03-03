@@ -656,21 +656,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7778966281465452191}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1836264212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1836264206}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ef3396ba25c123439d3a6317cec8f23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shoot:
-  - {fileID: 8300000, guid: 064949c6c61701c418d4950bedbc2508, type: 3}
-  startingPitch: 0.5
 --- !u!82 &1836264213
 AudioSource:
   m_ObjectHideFlags: 0
@@ -802,6 +787,8 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 887261995045832065, guid: 825330a03a101a7499778337dd31c313, type: 3}
   objects: {fileID: 0}
+  waveManager: {fileID: 0}
+  canSpawnEnemies: 1
 --- !u!61 &2139137910
 BoxCollider2D:
   m_ObjectHideFlags: 0
