@@ -50,7 +50,7 @@ public class ShootAtPlayer : MonoBehaviour
             currentFiringCooldown = 0;
 
             if (targetObject != null)
-                FireBullet(transform, targetObject.transform, new Vector3(0,-2));
+                FireBullet(transform, targetObject.transform, new Vector3(0,0));
         }
 
     }
@@ -59,6 +59,8 @@ public class ShootAtPlayer : MonoBehaviour
      * ------------
      * Gets the directional vector between a start and end position,
      * and instantiates a prefab with a static velocity.
+     * 
+     * The redirectVector is added to the endPosition (can be used to define accuracy).
      */
     void FireBullet(Transform startPosition, Transform endPosition, Vector3 redirectVector)
     {

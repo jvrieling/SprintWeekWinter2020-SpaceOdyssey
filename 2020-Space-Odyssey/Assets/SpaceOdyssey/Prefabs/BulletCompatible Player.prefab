@@ -52,7 +52,7 @@ MonoBehaviour:
     type: 3}
   audioClip: {fileID: 0}
   explo: {fileID: 0}
-  explosionScale: 1
+  explosionScale: 2
   collisionTags:
   - EnemyBullet
 --- !u!114 &7778966281678474067
