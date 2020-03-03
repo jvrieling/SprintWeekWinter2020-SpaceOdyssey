@@ -74,4 +74,5 @@ MonoBehaviour:
   enemiesPerSecond: 10
   enemyPrefabs:
   - {fileID: 887261995045832065, guid: 825330a03a101a7499778337dd31c313, type: 3}
+  - {fileID: 887261995045832065, guid: 559fa1c947999fa45bb39eedc1b8e2d7, type: 3}
   objects: {fileID: 0}

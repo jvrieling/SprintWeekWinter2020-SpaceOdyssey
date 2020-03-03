@@ -73,5 +73,7 @@ public class ShootAtPlayer : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity, transform);
         bullet.transform.parent = null;
         bullet.GetComponent<Rigidbody2D>().velocity = normalizedDirection * bulletVelocityMultiplier;
+        GetComponent<Object>().owner.RegisterEnemyBullet(bullet.GetComponent<EnemyBullet>());
+        bullet.GetComponent<Object>().owner = GetComponent<Object>().owner;
     }
 }
