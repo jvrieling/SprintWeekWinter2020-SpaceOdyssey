@@ -12,7 +12,8 @@ public class EnemySpawner : MonoBehaviour
     public ObjectManager objects;
 
     private float timeSinceLastEnemy;
-    private float timeBetweenEnemies;
+    [HideInInspector]
+    public float timeBetweenEnemies;
 
     private BoxCollider2D coll;
     private Bounds collBounds;
