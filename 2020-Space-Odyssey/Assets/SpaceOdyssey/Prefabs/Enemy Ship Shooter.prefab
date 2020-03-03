@@ -100,7 +100,8 @@ MonoBehaviour:
   bulletSpreadRadius: 0
   maxFiringCooldown: 5
   initialFiringCooldownMultiplier: 0.5
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 4952203565014493786, guid: 603a5adb19d2baf4299364ed2d306492,
+    type: 3}
   targetObject: {fileID: 0}
 --- !u!212 &887261995045832066
 SpriteRenderer:

@@ -1006,7 +1006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWave: 0
   currentNumberOfEnemies: 0
-  maxNumberOfEnemies: 0
+  maxNumberOfEnemies: 5
   enemySpawner: {fileID: 1821706999}
 --- !u!1 &1269458923
 GameObject:
@@ -1085,7 +1085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWave: 0
   currentNumberOfEnemies: 0
-  maxNumberOfEnemies: 0
+  maxNumberOfEnemies: 5
   enemySpawner: {fileID: 867283961}
 --- !u!1 &1638164727
 GameObject:

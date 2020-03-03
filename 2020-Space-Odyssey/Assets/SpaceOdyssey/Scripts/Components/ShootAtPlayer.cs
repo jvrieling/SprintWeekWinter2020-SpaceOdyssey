@@ -32,9 +32,9 @@ public class ShootAtPlayer : MonoBehaviour
 
     void Start()
     {
-        if (!bulletPrefab)
+        /*if (!bulletPrefab)
             bulletPrefab = AssetDatabase.LoadAssetAtPath("Assets/SpaceOdyssey/Prefabs/EnemyBullet.prefab",
-            typeof(GameObject)) as GameObject;
+            typeof(GameObject)) as GameObject;*/
 
         //REPLACE LATER WITH INDEX CHECK; DONT USE TAG CHECKS
         if (!targetObject)
