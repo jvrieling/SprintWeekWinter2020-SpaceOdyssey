@@ -4,8 +4,14 @@ using UnityEngine;
 
 /* WaveManager.cs
  * --------------
+ * Controls wave-related variables, such as:
+ * > Current Wave
+ * > Max Enemy Count
  * 
+ * Manipulates EnemySpawner.cs through:
+ * > Delay between enemies
  * 
+ * Requires a reference to EnemySpawner to function.
  */
 public class WaveManager : MonoBehaviour
 {
@@ -18,11 +24,6 @@ public class WaveManager : MonoBehaviour
 
     public EnemySpawner enemySpawner;
 
-
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -49,8 +50,10 @@ public class WaveManager : MonoBehaviour
 
         yield return new WaitForSeconds(delayBeforeNextWave);
 
+        float baseTimeBetweenEnemies = 10f;
+
         enemySpawner.enemiesPerSecond = maxNumberOfEnemies;
-        enemySpawner.timeBetweenEnemies = 10 / enemySpawner.enemiesPerSecond;
+        enemySpawner.timeBetweenEnemies = baseTimeBetweenEnemies / enemySpawner.enemiesPerSecond;
 
         enemySpawner.canSpawnEnemies = true;
 
