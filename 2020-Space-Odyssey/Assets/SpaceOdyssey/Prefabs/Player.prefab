@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 7778966281678474067}
   - component: {fileID: 7778966281678474068}
   - component: {fileID: 309521403}
+  - component: {fileID: 6917849356131765044}
   - component: {fileID: 1423191055173930146}
   m_Layer: 11
   m_Name: Player
@@ -210,7 +211,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4952203565014493786, guid: 5acf0ab2f5c3dca42ab677e68803b485,
     type: 3}
-  canShoot: 1
+  bullets: []
+  maxBullets: 0
   damageEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -257,6 +259,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6917849356131765044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778966281678474069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef3396ba25c123439d3a6317cec8f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shoot:
+  - {fileID: 8300000, guid: 064949c6c61701c418d4950bedbc2508, type: 3}
+  startingPitch: 0.5
 --- !u!58 &1423191055173930146
 CircleCollider2D:
   m_ObjectHideFlags: 0
