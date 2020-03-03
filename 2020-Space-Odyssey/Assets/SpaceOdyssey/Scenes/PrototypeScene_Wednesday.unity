@@ -439,6 +439,11 @@ PrefabInstance:
       propertyPath: enemiesPerSecond
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8387341224312222149, guid: 386caf1642725324dae10e5aa1f4e57e,
+        type: 3}
+      propertyPath: waveManager
+      value: 
+      objectReference: {fileID: 1208973938}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 386caf1642725324dae10e5aa1f4e57e, type: 3}
 --- !u!1 &353062598
@@ -811,6 +816,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56158c2410b9baf48b69097ab4c0aa63, type: 3}
+--- !u!114 &867283961 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8387341224312222149, guid: 386caf1642725324dae10e5aa1f4e57e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2138257334}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f388f747a257cb449c400b981ee797e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &967606003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -923,6 +940,7 @@ GameObject:
   - component: {fileID: 1208973937}
   - component: {fileID: 1208973936}
   - component: {fileID: 1208973935}
+  - component: {fileID: 1208973938}
   m_Layer: 0
   m_Name: P1 Manager
   m_TagString: Untagged
@@ -974,6 +992,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1208973938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208973934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d62b4ccbea7d5514c9f2af6980ec7786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWave: 0
+  currentNumberOfEnemies: 0
+  maxNumberOfEnemies: 0
+  enemySpawner: {fileID: 1821706999}
 --- !u!1 &1269458923
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,6 +1019,7 @@ GameObject:
   - component: {fileID: 1269458926}
   - component: {fileID: 1269458925}
   - component: {fileID: 1269458924}
+  - component: {fileID: 1269458927}
   m_Layer: 0
   m_Name: P2 Manager
   m_TagString: Untagged
@@ -1036,6 +1071,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1269458927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269458923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d62b4ccbea7d5514c9f2af6980ec7786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWave: 0
+  currentNumberOfEnemies: 0
+  maxNumberOfEnemies: 0
+  enemySpawner: {fileID: 867283961}
 --- !u!1 &1638164727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,6 +1167,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1821706999 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8387341224312222149, guid: 386caf1642725324dae10e5aa1f4e57e,
+    type: 3}
+  m_PrefabInstance: {fileID: 279046044}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f388f747a257cb449c400b981ee797e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2138257334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1203,5 +1266,10 @@ PrefabInstance:
       propertyPath: enemiesPerSecond
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8387341224312222149, guid: 386caf1642725324dae10e5aa1f4e57e,
+        type: 3}
+      propertyPath: waveManager
+      value: 
+      objectReference: {fileID: 1269458927}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 386caf1642725324dae10e5aa1f4e57e, type: 3}
