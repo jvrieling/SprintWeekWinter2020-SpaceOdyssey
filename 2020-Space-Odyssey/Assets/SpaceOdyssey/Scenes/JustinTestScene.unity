@@ -120,33 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &309521397 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7778966281678474069, guid: 56158c2410b9baf48b69097ab4c0aa63,
-    type: 3}
-  m_PrefabInstance: {fileID: 7778966281465452191}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &309521403
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309521397}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,9 +514,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   difficultyScale: 1
-  enemiesPerSecond: 10
+  enemiesPerSecond: 5
   enemyPrefabs:
   - {fileID: 887261995045832065, guid: 825330a03a101a7499778337dd31c313, type: 3}
+  objects: {fileID: 0}
 --- !u!61 &2139137910
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -719,33 +693,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7778966281678474067, guid: 56158c2410b9baf48b69097ab4c0aa63,
-        type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 4952203565014493786, guid: 5acf0ab2f5c3dca42ab677e68803b485,
-        type: 3}
-    - target: {fileID: 7778966281678474066, guid: 56158c2410b9baf48b69097ab4c0aa63,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 38376972f05309d499c68167b6808308,
-        type: 3}
-    - target: {fileID: 7778966281678474066, guid: 56158c2410b9baf48b69097ab4c0aa63,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7778966281678474066, guid: 56158c2410b9baf48b69097ab4c0aa63,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7778966281678474066, guid: 56158c2410b9baf48b69097ab4c0aa63,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56158c2410b9baf48b69097ab4c0aa63, type: 3}
