@@ -25,9 +25,8 @@ public class ShootAtPlayer : MonoBehaviour
 
     [SerializeField]
     private GameObject bulletPrefab;
-
-    //GameObject that it will shoot at.
-    private GameObject targetObject;
+    
+    private GameObject targetObject; //GameObject that it will shoot at.
 
 
     void Start()
@@ -36,7 +35,7 @@ public class ShootAtPlayer : MonoBehaviour
             bulletPrefab = AssetDatabase.LoadAssetAtPath("Assets/SpaceOdyssey/Prefabs/EnemyBullet.prefab",
             typeof(GameObject)) as GameObject;
 
-        //REPLACE LATER; DONT USE TAG CHECKS
+        //REPLACE LATER WITH INDEX CHECK; DONT USE TAG CHECKS
         if (!targetObject)
             targetObject = GameObject.FindGameObjectWithTag("Player");
 

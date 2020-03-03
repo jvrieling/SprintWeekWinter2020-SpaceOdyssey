@@ -36,6 +36,7 @@ public class ExplodeOnTrigger : MonoBehaviour
                     
                 }
                 
+                //*
                 if (gameObject.tag != "Player")
                     Destroy(gameObject);
             }
