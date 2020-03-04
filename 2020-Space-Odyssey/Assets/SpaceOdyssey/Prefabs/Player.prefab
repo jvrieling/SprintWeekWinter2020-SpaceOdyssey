@@ -90,6 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7715757500431887448}
   - component: {fileID: 1632619503463848668}
+  - component: {fileID: 8025695605120355981}
   m_Layer: 11
   m_Name: ShipBody
   m_TagString: Untagged
@@ -160,6 +161,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8025695605120355981
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3803032485475235599}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bb978552c8b10644c95752d781c5ed5d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7778966281678474069
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,17 +253,10 @@ MonoBehaviour:
     type: 3}
   canShoot: 1
   maxBullets: 3
-  damageEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: PlayerDamagedEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
-  shootEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: PlayerShootEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
   playerNumber: 0
+  gameCamera: {fileID: 0}
+  score: 0
+  lives: 0
 --- !u!114 &7778966281678474068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,9 +322,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06, y: 0}
+  m_Offset: {x: 0, y: -0.11}
   serializedVersion: 2
-  m_Radius: 0.56
+  m_Radius: 0.5
 --- !u!82 &8247897067007248522
 AudioSource:
   m_ObjectHideFlags: 0
