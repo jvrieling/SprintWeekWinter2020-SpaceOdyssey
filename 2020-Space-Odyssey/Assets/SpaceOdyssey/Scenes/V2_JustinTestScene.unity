@@ -569,6 +569,11 @@ PrefabInstance:
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 1208973935}
+    - target: {fileID: 7778966281678474067, guid: 56158c2410b9baf48b69097ab4c0aa63,
+        type: 3}
+      propertyPath: playerNumber
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6917849356131765044, guid: 56158c2410b9baf48b69097ab4c0aa63,
         type: 3}
       propertyPath: m_Enabled
@@ -828,6 +833,11 @@ PrefabInstance:
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 1269458924}
+    - target: {fileID: 7778966281678474067, guid: 56158c2410b9baf48b69097ab4c0aa63,
+        type: 3}
+      propertyPath: playerNumber
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6917849356131765044, guid: 56158c2410b9baf48b69097ab4c0aa63,
         type: 3}
       propertyPath: m_Enabled
