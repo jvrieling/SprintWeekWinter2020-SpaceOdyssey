@@ -32,6 +32,16 @@ public class ModifierManager : MonoBehaviour
         }
     }
 
+    public void ToggleModifier(string mod)
+    {
+        switch (mod)
+        {
+            case "splitShot":
+
+                break;
+        }
+    }
+
     public void ToggleFasterEnemies()
     {
         if (!fasterEnemies)
