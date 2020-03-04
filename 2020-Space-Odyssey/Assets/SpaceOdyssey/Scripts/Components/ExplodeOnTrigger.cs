@@ -6,11 +6,7 @@ public class ExplodeOnTrigger : MonoBehaviour
 {
     public GameObject explosionPrefab;
 
-    public AudioClip audioClip;
-
-    public AudioSource explo;
-
-    public float explosionScale;
+     public float explosionScale;
 
     public string[] collisionTags;
 
@@ -39,7 +35,7 @@ public class ExplodeOnTrigger : MonoBehaviour
                     temp.transform.localScale = new Vector3(explosionScale, explosionScale, 1);
 
                 }
-
+                AudioManager.instance.Play("EnemyDeath");
                 if (gameObject.tag != "Player")
                     Destroy(gameObject);
             }
