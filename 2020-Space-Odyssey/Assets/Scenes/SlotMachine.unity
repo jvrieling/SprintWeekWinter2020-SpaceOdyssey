@@ -404,7 +404,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 636d33a91edbd6f4db5dfadc8403e5f0, type: 3}
   - {fileID: 21300000, guid: fc76a021bd98017499d525a479240bf8, type: 3}
   - {fileID: 21300000, guid: 4bfb881079f03c14d9c14ffc763a370e, type: 3}
-  - {fileID: 21300000, guid: 3cd29efe5d9a6b744967351c06ae775a, type: 3}
   StopTime: 1
 --- !u!114 &1317960909
 MonoBehaviour:
@@ -580,11 +579,10 @@ MonoBehaviour:
   Sprites:
   - {fileID: 21300000, guid: f75078d4773251546a4219c9d6fa4df2, type: 3}
   - {fileID: 21300000, guid: 11e31073957a646449f1eded6e2f28f3, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 5040b2bbcbf5fe24a852e73ac3f1fd24, type: 3}
+  - {fileID: 21300000, guid: 636d33a91edbd6f4db5dfadc8403e5f0, type: 3}
+  - {fileID: 21300000, guid: 4bfb881079f03c14d9c14ffc763a370e, type: 3}
+  - {fileID: 21300000, guid: 3cd29efe5d9a6b744967351c06ae775a, type: 3}
   StopTime: 1
 --- !u!114 &1467321330
 MonoBehaviour:
@@ -1002,7 +1000,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Select Item
+  m_Text: 'Select Modifier
 
 '
 --- !u!222 &2052817285

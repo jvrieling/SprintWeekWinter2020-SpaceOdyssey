@@ -2,26 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActualSlotMachine : MonoBehaviour
+public class SpawnModifiers : MonoBehaviour
 {
 
-    public Sprite[] Sprites;
-    public float StopTime;
 
-    
-    void FixedUpdate()
+    public Sprite[] Sprites;
+
+
+    public void OnSpawnModifier()
     {
+        enabled = true;
+
         gameObject.GetComponent<UnityEngine.UI.Image>().sprite = Sprites[Random.Range(0, Sprites.Length)];
+
     }
 
-    public void EndRand()
+    public void OnModifierSelect()
     {
         enabled = false;
     }
 
-    public void StartRand()
-    {
-        enabled = true;
-    }
 
 }
