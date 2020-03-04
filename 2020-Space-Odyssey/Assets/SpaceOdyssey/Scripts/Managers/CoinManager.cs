@@ -28,16 +28,17 @@ public class CoinManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown("3") || Input.GetKeyDown("4"))
+        {
+            flashingText.text = "PRESS START";
+            coins++;
+            audio.time = 0;
+            audio.Play();
+        }
+
         if (!inGame)
         {
-            if (Input.GetKeyDown("3") || Input.GetKeyDown("4"))
-            {
-                flashingText.text = "PRESS START";
-                coins++;
-                audio.time = 0;
-                audio.Play();
-            }
+            
             if ((Input.GetKeyDown("1") || Input.GetKeyDown("2")) && coins > 0)
             {
                 inGame = true;
@@ -45,11 +46,18 @@ public class CoinManager : MonoBehaviour
                 startAnimator.SetTrigger("start");
                 audio.PlayOneShot(startSound);
             }
+        } else
+        {
+            if ((Input.GetKeyDown("1") && coins > 0))
+            {
+                coins--;
+                GameObject.Find("Player 1").GetComponent<PlayerController>().AddLives(2);
+            }
+            if ((Input.GetKeyDown("2") && coins > 0))
+            {
+                coins--;
+                GameObject.Find("Player 2").GetComponent<PlayerController>().AddLives(2);
+            }
         }
-    }
-
-    public void StartGame()
-    {
-        SceneManager.LoadScene("V2_JustinTestScene");
     }
 }
