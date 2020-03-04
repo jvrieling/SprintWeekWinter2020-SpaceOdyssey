@@ -23,6 +23,15 @@ public class PlayerController : MonoBehaviour
     public int score;
     public int lives;
 
+    public bool isDead = false;
+    public float respawnTime = 1f;
+    private float timeToRespawn = 0;
+    private Vector3 initalPosition;
+
+    public bool invincible = false;
+    public float invicibilityTime = 2;
+    private float invicibilityLeft;
+
     void Awake()
     {
         motor = GetComponent<ShipMotor>();
@@ -32,6 +41,8 @@ public class PlayerController : MonoBehaviour
 
         if (!collider && GetComponent<CircleCollider2D>())
             collider = GetComponent<CircleCollider2D>();
+
+        initalPosition = transform.position;
     }
     public bool Getbool()
     { return canShoot; }
@@ -60,14 +71,51 @@ public class PlayerController : MonoBehaviour
             canShoot = true;
         }
 
+        if (isDead)
+        {
+            timeToRespawn -= Time.deltaTime;
+            if(timeToRespawn <= 0)
+            {
+                Respawn();
+            }
+        }
+        if (invincible)
+        {
+            invicibilityLeft -= Time.deltaTime;
+            if(invicibilityLeft <= 0)
+            {
+                invincible = false;
+            }
+        }
+
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if(!invincible && (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyBullet"))
         {
             //damageEvent.Invoke();
+            Debug.Log("Hit an enemy!!");
+            KillPlayer();
         }
     }
+    public void KillPlayer()
+    {
+        isDead = true;
+        timeToRespawn = respawnTime;
+        transform.position = new Vector3(-1000, -1000, 1000);
+    }
+    public void Respawn()
+    {        
+        if(lives > 0)
+        {
+            AddLives(-1);
+            isDead = false;
+            transform.position = initalPosition;
+            invincible = true;
+            invicibilityLeft = invicibilityTime;
+        }
+    }
+
     public void DestroyBullet(PlayerBullet bullet)
     {
         objectManager.playerBullets.Remove(bullet);

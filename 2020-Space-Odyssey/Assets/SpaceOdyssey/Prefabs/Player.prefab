@@ -226,7 +226,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7778966281678474069}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b93fcf335c7fd5146a576429980e78df, type: 3}
   m_Name: 
@@ -256,7 +256,11 @@ MonoBehaviour:
   playerNumber: 0
   gameCamera: {fileID: 0}
   score: 0
-  lives: 0
+  lives: 3
+  isDead: 0
+  respawnTime: 1
+  invincible: 0
+  invicibilityTime: 2
 --- !u!114 &7778966281678474068
 MonoBehaviour:
   m_ObjectHideFlags: 0
