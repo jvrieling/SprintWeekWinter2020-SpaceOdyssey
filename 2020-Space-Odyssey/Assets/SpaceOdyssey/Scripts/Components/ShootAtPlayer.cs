@@ -45,14 +45,18 @@ public class ShootAtPlayer : MonoBehaviour
         //Camera.main is NOT EFFICIENT, BUT AT THIS POINT WHO CARES
         if (Camera.main.WorldToScreenPoint(transform.position).x > Screen.width / 2)
         {
+            //Right Player
             playerNumber = 2;
         }
         else
         {
+            //Left Player
             playerNumber = 1;
         }
+
         //Again, NOT EFFICIENT BUT WHATEVER
-        targetObject = GameObject.Find("Player " + playerNumber);
+        if (playerNumber != 0)
+            targetObject = GameObject.Find("Player " + playerNumber);
 
         currentFiringCooldown = maxFiringCooldown * initialFiringCooldownMultiplier;
     }
