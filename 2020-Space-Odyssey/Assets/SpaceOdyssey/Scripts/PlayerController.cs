@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
             collider = GetComponent<CircleCollider2D>();
 
         initalPosition = transform.position;
+
     }
     public bool Getbool()
     { return canShoot; }
