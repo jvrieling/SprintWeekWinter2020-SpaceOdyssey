@@ -50,7 +50,7 @@ MonoBehaviour:
     volume: 0.976
     volumeVariance: 0.058
     pitch: 1
-    pitchVariance: 0.076
+    pitchVariance: 0.149
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
