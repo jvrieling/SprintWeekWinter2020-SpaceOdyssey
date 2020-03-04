@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 054db7a7d2d84c347a8e11f9ede668cc, type: 3}
-  m_Color: {r: 0, g: 0.10700178, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -275,6 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AccelerationTime: 0.2
   DecelerationTime: 0.5
+  baseMaxSpeed: 3
   MaxSpeed: 3
 --- !u!50 &309521403
 Rigidbody2D:
@@ -304,7 +305,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7778966281678474069}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ef3396ba25c123439d3a6317cec8f23, type: 3}
   m_Name: 

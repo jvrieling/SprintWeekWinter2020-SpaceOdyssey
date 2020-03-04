@@ -64,12 +64,12 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: Music
-    clip: {fileID: 8300000, guid: c56b691f9dbff8846a276cd31bc525d5, type: 3}
+    clip: {fileID: 8300000, guid: 32c5064b79453fc41b762d85efad0a74, type: 3}
     volume: 0.976
     volumeVariance: 0.058
     pitch: 1
-    pitchVariance: 0.076
-    loop: 0
+    pitchVariance: 0
+    loop: 1
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: LoseLives
@@ -100,11 +100,11 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: UI_StartGame
-    clip: {fileID: 8300000, guid: 2f35290d8d4139d4d91852f0fe9c979e, type: 3}
+    clip: {fileID: 8300000, guid: e3c390f620eadf94ba4f54fa1abd16a6, type: 3}
     volume: 0.976
     volumeVariance: 0.058
     pitch: 1
-    pitchVariance: 0.076
+    pitchVariance: 0
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
@@ -122,7 +122,7 @@ MonoBehaviour:
     volume: 0.092
     volumeVariance: 0.058
     pitch: 1
-    pitchVariance: 0.076
+    pitchVariance: 0
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
@@ -131,7 +131,7 @@ MonoBehaviour:
     volume: 0.976
     volumeVariance: 0.058
     pitch: 1
-    pitchVariance: 0.076
+    pitchVariance: 0
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
@@ -149,7 +149,7 @@ MonoBehaviour:
     volume: 0.976
     volumeVariance: 0.058
     pitch: 1
-    pitchVariance: 0.076
+    pitchVariance: 0
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
@@ -163,12 +163,12 @@ MonoBehaviour:
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: UI_MenuMusic
-    clip: {fileID: 8300000, guid: a0a0ac19826053a438563c93f71d4f86, type: 3}
+    clip: {fileID: 8300000, guid: 231e9f7a2cd8dbd4fb067dde7194069f, type: 3}
     volume: 0.976
     volumeVariance: 0.058
     pitch: 1
-    pitchVariance: 0.076
-    loop: 0
+    pitchVariance: 0
+    loop: 1
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: UI_MenuMusic

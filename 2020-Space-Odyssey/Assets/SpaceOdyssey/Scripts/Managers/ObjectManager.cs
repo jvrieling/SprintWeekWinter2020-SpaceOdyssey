@@ -5,19 +5,24 @@ using UnityEngine;
 public class ObjectManager : MonoBehaviour
 {
     private ModifierManager modifiers;
+    
+    //*
+    public GameObject player;
 
     public List<MoveDownScreen> enemies;
     public List<EnemyBullet> bullets;
     public List<PlayerBullet> playerBullets;
 
+
     private void Awake()
     {
         enemies = new List<MoveDownScreen>();
         bullets = new List<EnemyBullet>();
-        playerBullets = new List<PlayerBullet>();       
+        playerBullets = new List<PlayerBullet>();
 
         modifiers = GetComponent<ModifierManager>();
     }
+
 
     public void MultiplyEnemySpeed(float multiplier)
     {
@@ -52,4 +57,13 @@ public class ObjectManager : MonoBehaviour
         bullets.Remove(bullet);
     }
 
+
+
+    public void MultiplyPlayerSpeed(float multiplier)
+    {
+        float finalSpeed = player.GetComponent<ShipMotor>().baseMaxSpeed * multiplier;
+
+        player.GetComponent<ShipMotor>().MaxSpeed = finalSpeed;
+        Debug.Log(player.name + "'s max speed modified to " + multiplier * 100 + "%.");
+    }
 }

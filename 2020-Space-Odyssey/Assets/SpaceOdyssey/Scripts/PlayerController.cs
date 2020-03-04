@@ -36,6 +36,11 @@ public class PlayerController : MonoBehaviour
     {
         motor = GetComponent<ShipMotor>();
 
+        //*
+        motor.MaxSpeed = motor.baseMaxSpeed;
+
+        //bullets = new List<PlayerBullet>();
+
         if (!gameCamera)
             gameCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
@@ -47,7 +52,7 @@ public class PlayerController : MonoBehaviour
     }
     public bool Getbool()
     { return canShoot; }
-
+    
     void Update()
     {
         BoundaryCheckCircle();
