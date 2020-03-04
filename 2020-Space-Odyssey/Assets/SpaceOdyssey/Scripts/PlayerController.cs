@@ -13,12 +13,15 @@ public class PlayerController : MonoBehaviour
 
     private ShipMotor motor;
 
-    public PlayerDamagedEvent damageEvent;
-    public PlayerShootEvent shootEvent;
+    //public PlayerDamagedEvent damageEvent;
+    //public PlayerShootEvent shootEvent;
 
     public int playerNumber;
     public Camera gameCamera;
     private new CircleCollider2D collider;
+
+    public int score;
+    public int lives;
 
     void Awake()
     {
@@ -44,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot && objectManager.playerBullets.Count < maxBullets)
         {
-            shootEvent.Invoke();
+            //shootEvent.Invoke();
             canShoot = false;
             GameObject tempBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             tempBullet.name = "Player Bullet";
@@ -62,7 +65,7 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            damageEvent.Invoke();
+            //damageEvent.Invoke();
         }
     }
     public void DestroyBullet(PlayerBullet bullet)
@@ -71,9 +74,21 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    public void addScore()
+    public void AddScore(int amt)
     {
-
+        score += amt;
+        AudioManager.instance.Play("Points");
+    }
+    public void AddLives(int amt)
+    {
+        lives += amt;
+        if(amt > 0)
+        {
+            AudioManager.instance.Play("GainLives");
+        } else
+        {
+            AudioManager.instance.Play("LoseLives");
+        }
     }
 
     /* BoundaryCheckCircle()
