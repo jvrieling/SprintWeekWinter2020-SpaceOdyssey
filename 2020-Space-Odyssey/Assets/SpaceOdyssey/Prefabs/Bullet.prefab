@@ -94,7 +94,9 @@ MonoBehaviour:
   currentLifeSpan: 0
   maxLifeSpan: 0.5
   splitCount: 2
-  splitAngleInDegrees: 25
+  splitAngleInDegrees: 30
+  currentGeneration: 0
+  maxGenerations: 5
 --- !u!212 &4952203565014493784
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -16,6 +16,8 @@ public class UpgradeBulletSplit : MonoBehaviour
     public float maxLifeSpan = 1f;
     public int splitCount = 2;
     public float splitAngleInDegrees = 25f;
+    public int currentGeneration;
+    public int maxGenerations = 3;
 
     private GameObject copiedObject;
     
@@ -43,18 +45,22 @@ public class UpgradeBulletSplit : MonoBehaviour
         Debug.Log("Splitting!");
 
         currentLifeSpan = 0;
+        currentGeneration++;
 
         copiedObject = gameObject;
-        for (int i = 0; i < splitCount; i++)
+
+        if (currentGeneration < maxGenerations)
         {
-            GameObject bullet = Instantiate(copiedObject, transform.position, Quaternion.identity);
+            for (int i = 0; i < splitCount; i++)
+            {
+                GameObject bullet = Instantiate(copiedObject, transform.position, Quaternion.identity);
 
 
-            bullet.transform.Rotate(0 , 0, (i - 0.5f) * splitAngleInDegrees);
+                bullet.transform.Rotate(0, 0, i * (splitAngleInDegrees/(splitCount - 1)) - splitAngleInDegrees/2);
 
-            bullet.name = "Split Player Bullet";
+                bullet.name = "Split Player Bullet";
+            }
         }
-
 
         Destroy(gameObject);
     }
