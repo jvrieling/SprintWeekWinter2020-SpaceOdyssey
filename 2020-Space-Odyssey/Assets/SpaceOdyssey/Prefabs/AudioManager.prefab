@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 680779249971054754}
   - component: {fileID: 680779249971054753}
   m_Layer: 0
-  m_Name: AudioManager 1
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,6 +65,114 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Music
     clip: {fileID: 8300000, guid: c56b691f9dbff8846a276cd31bc525d5, type: 3}
+    volume: 0.976
+    volumeVariance: 0.058
+    pitch: 1
+    pitchVariance: 0.076
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: PlayerDeath
+    clip: {fileID: 8300000, guid: 2f35290d8d4139d4d91852f0fe9c979e, type: 3}
+    volume: 0.976
+    volumeVariance: 0.058
+    pitch: 1
+    pitchVariance: 0.076
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: AddLife
+    clip: {fileID: 8300000, guid: 666101cadf43526429ba23d268a9588e, type: 3}
+    volume: 0.976
+    volumeVariance: 0.058
+    pitch: 1
+    pitchVariance: 0.076
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: UI_MenuMove
+    clip: {fileID: 8300000, guid: 2f35290d8d4139d4d91852f0fe9c979e, type: 3}
+    volume: 0.976
+    volumeVariance: 0.058
+    pitch: 1
+    pitchVariance: 0.076
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: UI_StartGame
+    clip: {fileID: 8300000, guid: 2f35290d8d4139d4d91852f0fe9c979e, type: 3}
+    volume: 0.976
+    volumeVariance: 0.058
+    pitch: 1
+    pitchVariance: 0.076
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: UI_EndGame
+    clip: {fileID: 8300000, guid: 6ee2a4188b0b7944e82afa49731ab206, type: 3}
+    volume: 0.976
+    volumeVariance: 0.058
+    pitch: 1
+    pitchVariance: 0.076
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: UI_AddScore
+    clip: {fileID: 8300000, guid: a16f132dacba78743b3aa9e3e9ea4d7f, type: 3}
+    volume: 0.976
+    volumeVariance: 0.058
+    pitch: 1
+    pitchVariance: 0.076
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: UI_WaveComplete
+    clip: {fileID: 8300000, guid: 3f07ea21356793a4b9bdbf408e753093, type: 3}
+    volume: 0.976
+    volumeVariance: 0.058
+    pitch: 1
+    pitchVariance: 0.076
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: UI_MenuSelect
+    clip: {fileID: 8300000, guid: 3f07ea21356793a4b9bdbf408e753093, type: 3}
+    volume: 0.976
+    volumeVariance: 0.058
+    pitch: 1
+    pitchVariance: 0.076
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: UI_SlotMachine
+    clip: {fileID: 8300000, guid: 7c9e6070bf1ec5746b6a4a4f20de6653, type: 3}
+    volume: 0.976
+    volumeVariance: 0.058
+    pitch: 1
+    pitchVariance: 0.076
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: LaserRapidFire
+    clip: {fileID: 8300000, guid: da89d07914bcf37419cea9651771ae9f, type: 3}
+    volume: 0.976
+    volumeVariance: 0.058
+    pitch: 1
+    pitchVariance: 0.076
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: UI_MenuMusic
+    clip: {fileID: 8300000, guid: a0a0ac19826053a438563c93f71d4f86, type: 3}
+    volume: 0.976
+    volumeVariance: 0.058
+    pitch: 1
+    pitchVariance: 0.076
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: UI_MenuMusic
+    clip: {fileID: 8300000, guid: a0a0ac19826053a438563c93f71d4f86, type: 3}
     volume: 0.976
     volumeVariance: 0.058
     pitch: 1
