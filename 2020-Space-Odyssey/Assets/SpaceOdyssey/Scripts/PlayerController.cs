@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     public PlayerDamagedEvent damageEvent;
     public PlayerShootEvent shootEvent;
 
+    //*
+    public int playerNumber;
+
     void Awake()
     {
         motor = GetComponent<ShipMotor>();
@@ -28,11 +31,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Use the ship motor from a past assignment.
-        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal_P" + playerNumber), Input.GetAxisRaw("Vertical_P" + playerNumber));
 
         motor.HandleMovementInput(input);
 
-        if (Input.GetAxisRaw("Fire1") == 1 && canShoot && bullets.Count < maxBullets)
+        if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot && bullets.Count < maxBullets)
         {
             shootEvent.Invoke();
             canShoot = false;
@@ -42,7 +45,7 @@ public class PlayerController : MonoBehaviour
             objectManager.playerBullets.Add(tempBullet.GetComponent<PlayerBullet>());
             AudioManager.instance.Play("Laser");
         }
-        else if (Input.GetAxisRaw("Fire1") == 0)
+        else if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 0)
         {
             canShoot = true;
         }
