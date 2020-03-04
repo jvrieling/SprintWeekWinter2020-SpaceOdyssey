@@ -59,7 +59,15 @@ public class PlayerController : MonoBehaviour
     {
         objectManager.playerBullets.Remove(bullet);
     }
+
+    public void addScore()
+    {
+
+    }
+
 }
+
+
 
 [System.Serializable]
 public class PlayerDamagedEvent : UnityEvent {}
