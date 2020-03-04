@@ -32,13 +32,31 @@ public class ShootAtPlayer : MonoBehaviour
 
     void Start()
     {
-        if (!bulletPrefab)
+        /*if (!bulletPrefab)
             bulletPrefab = AssetDatabase.LoadAssetAtPath("Assets/SpaceOdyssey/Prefabs/EnemyBullet.prefab",
-            typeof(GameObject)) as GameObject;
+            typeof(GameObject)) as GameObject;*/
 
         //REPLACE LATER WITH INDEX CHECK; DONT USE TAG CHECKS
-        if (!targetObject)
-            targetObject = GameObject.FindGameObjectWithTag("Player");
+        //if (!targetObject)
+        //    targetObject = GameObject.FindGameObjectWithTag("Player");
+
+        int playerNumber;
+
+        //Camera.main is NOT EFFICIENT, BUT AT THIS POINT WHO CARES
+        if (Camera.main.WorldToScreenPoint(transform.position).x > Screen.width / 2)
+        {
+            //Right Player
+            playerNumber = 2;
+        }
+        else
+        {
+            //Left Player
+            playerNumber = 1;
+        }
+
+        //Again, NOT EFFICIENT BUT WHATEVER
+        if (playerNumber != 0)
+            targetObject = GameObject.Find("Player " + playerNumber);
 
         currentFiringCooldown = maxFiringCooldown * initialFiringCooldownMultiplier;
     }

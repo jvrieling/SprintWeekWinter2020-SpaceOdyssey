@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
+    public ObjectManager objectManager;
+
     public GameObject bulletPrefab;
     public bool canShoot = true;
     public List<PlayerBullet> bullets;
@@ -14,6 +16,9 @@ public class PlayerController : MonoBehaviour
 
     public PlayerDamagedEvent damageEvent;
     public PlayerShootEvent shootEvent;
+
+    //*
+    public int playerNumber;
 
     void Awake()
     {
@@ -26,21 +31,21 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Use the ship motor from a past assignment.
-        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal_P" + playerNumber), Input.GetAxisRaw("Vertical_P" + playerNumber));
 
         motor.HandleMovementInput(input);
 
-        if (Input.GetAxisRaw("Fire1") == 1 && canShoot && bullets.Count < maxBullets)
+        if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot && bullets.Count < maxBullets)
         {
             shootEvent.Invoke();
             canShoot = false;
             GameObject tempBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             tempBullet.name = "Player Bullet";
             tempBullet.GetComponent<PlayerBullet>().owner = this;
-            bullets.Add(tempBullet.GetComponent<PlayerBullet>());
+            objectManager.playerBullets.Add(tempBullet.GetComponent<PlayerBullet>());
             AudioManager.instance.Play("Laser");
         }
-        else if (Input.GetAxisRaw("Fire1") == 0)
+        else if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 0)
         {
             canShoot = true;
         }
