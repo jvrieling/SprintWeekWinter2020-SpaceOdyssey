@@ -95,7 +95,6 @@ public class PlayerController : MonoBehaviour
         if(!invincible && (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyBullet"))
         {
             //damageEvent.Invoke();
-            Debug.Log("Hit an enemy!!");
             KillPlayer();
         }
     }
