@@ -32,6 +32,9 @@ public class PlayerController : MonoBehaviour
     public float invicibilityTime = 2;
     private float invicibilityLeft;
 
+    [HideInInspector]
+    public BulletModifierManager bmManager;
+
     void Awake()
     {
         motor = GetComponent<ShipMotor>();
@@ -47,6 +50,9 @@ public class PlayerController : MonoBehaviour
         if (!collider && GetComponent<CircleCollider2D>())
             collider = GetComponent<CircleCollider2D>();
 
+        if (!bmManager)
+            bmManager = GetComponent<BulletModifierManager>();
+
         initalPosition = transform.position;
 
     }
@@ -57,25 +63,14 @@ public class PlayerController : MonoBehaviour
     {
         BoundaryCheckCircle();
 
+        ShootBullet();
+
         //Use the ship motor from a past assignment.
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal_P" + playerNumber), Input.GetAxisRaw("Vertical_P" + playerNumber));
 
         motor.HandleMovementInput(input);
 
-        if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot && objectManager.playerBullets.Count < maxBullets)
-        {
-            //shootEvent.Invoke();
-            canShoot = false;
-            GameObject tempBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            tempBullet.name = "Player Bullet";
-            tempBullet.GetComponent<PlayerBullet>().owner = this;
-            objectManager.playerBullets.Add(tempBullet.GetComponent<PlayerBullet>());
-            AudioManager.instance.Play("Laser");
-        }
-        else if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 0)
-        {
-            canShoot = true;
-        }
+        
 
         if (isDead)
         {
@@ -95,6 +90,31 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+
+    private void ShootBullet()
+    {
+        if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot 
+            && objectManager.playerBullets.Count < maxBullets)
+        {
+            //shootEvent.Invoke();
+            canShoot = false;
+            GameObject tempBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            tempBullet.name = "Player Bullet";
+            tempBullet.GetComponent<PlayerBullet>().owner = this;
+
+            if (bmManager.canBulletSplit)
+                tempBullet.GetComponent<UpgradeBulletSplit>().isActive = true;
+
+            objectManager.playerBullets.Add(tempBullet.GetComponent<PlayerBullet>());
+            AudioManager.instance.Play("Laser");
+        }
+        else if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 0)
+        {
+            canShoot = true;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(!invincible && (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyBullet"))
