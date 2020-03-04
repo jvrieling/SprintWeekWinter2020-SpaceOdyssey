@@ -120,6 +120,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &4115525 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7778966281678474069, guid: 56158c2410b9baf48b69097ab4c0aa63,
+    type: 3}
+  m_PrefabInstance: {fileID: 725697240}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &37992279
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,11 +580,6 @@ PrefabInstance:
       propertyPath: playerNumber
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6917849356131765044, guid: 56158c2410b9baf48b69097ab4c0aa63,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5965655390489142211, guid: 56158c2410b9baf48b69097ab4c0aa63,
         type: 3}
       propertyPath: m_Color.r
@@ -593,6 +594,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7778966281678474068, guid: 56158c2410b9baf48b69097ab4c0aa63,
+        type: 3}
+      propertyPath: baseMaxSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6917849356131765044, guid: 56158c2410b9baf48b69097ab4c0aa63,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56158c2410b9baf48b69097ab4c0aa63, type: 3}
@@ -825,39 +836,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7778966281678474067, guid: 56158c2410b9baf48b69097ab4c0aa63,
         type: 3}
-      propertyPath: maxBullets
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7778966281678474067, guid: 56158c2410b9baf48b69097ab4c0aa63,
-        type: 3}
       propertyPath: objectManager
       value: 
       objectReference: {fileID: 1269458924}
-    - target: {fileID: 7778966281678474067, guid: 56158c2410b9baf48b69097ab4c0aa63,
-        type: 3}
-      propertyPath: playerNumber
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6917849356131765044, guid: 56158c2410b9baf48b69097ab4c0aa63,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5965655390489142211, guid: 56158c2410b9baf48b69097ab4c0aa63,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5965655390489142211, guid: 56158c2410b9baf48b69097ab4c0aa63,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5965655390489142211, guid: 56158c2410b9baf48b69097ab4c0aa63,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56158c2410b9baf48b69097ab4c0aa63, type: 3}
 --- !u!114 &867283961 stripped
@@ -1005,6 +986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ccf692ddbc29224a8c939955d0e07ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 2035082067}
   enemies: []
   bullets: []
   playerBullets: []
@@ -1023,6 +1005,9 @@ MonoBehaviour:
   fasterEnemies: 0
   speedMultiplier: 2.3
   toggleFasterEnemies: n
+  fasterPlayers: 0
+  playerSpeedMultiplier: 2
+  toggleFasterPlayers: n
 --- !u!4 &1208973937
 Transform:
   m_ObjectHideFlags: 0
@@ -1084,6 +1069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ccf692ddbc29224a8c939955d0e07ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 4115525}
   enemies: []
   bullets: []
   playerBullets: []
@@ -1102,6 +1088,9 @@ MonoBehaviour:
   fasterEnemies: 0
   speedMultiplier: 2.3
   toggleFasterEnemies: n
+  fasterPlayers: 0
+  playerSpeedMultiplier: 2
+  toggleFasterPlayers: n
 --- !u!4 &1269458926
 Transform:
   m_ObjectHideFlags: 0
@@ -1398,6 +1387,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f388f747a257cb449c400b981ee797e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2035082067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7778966281678474069, guid: 56158c2410b9baf48b69097ab4c0aa63,
+    type: 3}
+  m_PrefabInstance: {fileID: 441177716}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2138257334
 PrefabInstance:
   m_ObjectHideFlags: 0

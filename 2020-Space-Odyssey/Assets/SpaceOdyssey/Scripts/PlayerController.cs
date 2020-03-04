@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
     public PlayerDamagedEvent damageEvent;
     public PlayerShootEvent shootEvent;
 
-    //*
     public int playerNumber;
     public Camera gameCamera;
     private new CircleCollider2D collider;
@@ -24,6 +23,10 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         motor = GetComponent<ShipMotor>();
+
+        //*
+        motor.MaxSpeed = motor.baseMaxSpeed;
+
         //bullets = new List<PlayerBullet>();
 
         if (!gameCamera)
