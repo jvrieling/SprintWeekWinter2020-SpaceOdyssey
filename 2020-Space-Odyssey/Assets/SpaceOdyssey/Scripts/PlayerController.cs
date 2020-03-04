@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
     public PlayerDamagedEvent damageEvent;
     public PlayerShootEvent shootEvent;
 
-    //*
     public int playerNumber;
 
     void Awake()
