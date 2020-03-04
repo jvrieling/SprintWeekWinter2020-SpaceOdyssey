@@ -29,12 +29,17 @@ public class ShootAtPlayer : MonoBehaviour
     [SerializeField]
     private GameObject targetObject; //GameObject that it will shoot at.
 
+    private Camera gameCamera;
+
 
     void Start()
     {
         if (!bulletPrefab)
             bulletPrefab = AssetDatabase.LoadAssetAtPath("Assets/SpaceOdyssey/Prefabs/EnemyBullet.prefab",
             typeof(GameObject)) as GameObject;
+
+        if (!gameCamera)
+            gameCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
         //REPLACE LATER WITH INDEX CHECK; DONT USE TAG CHECKS
         //if (!targetObject)
@@ -43,7 +48,7 @@ public class ShootAtPlayer : MonoBehaviour
         int playerNumber;
 
         //Camera.main is NOT EFFICIENT, BUT AT THIS POINT WHO CARES
-        if (Camera.main.WorldToScreenPoint(transform.position).x > Screen.width / 2)
+        if (gameCamera.WorldToScreenPoint(transform.position).x > Screen.width / 2)
         {
             //Right Player
             playerNumber = 2;
