@@ -24,6 +24,8 @@ public class WaveManager : MonoBehaviour
 
     public EnemySpawner enemySpawner;
 
+    public bool isPaused = false;
+
 
     void Update()
     {
@@ -39,6 +41,15 @@ public class WaveManager : MonoBehaviour
     {
         currentNumberOfEnemies = 0;
 
+
+        while (isPaused)
+            yield return null;
+        
+        float delayBeforeNextWave = 5f;
+
+
+        yield return new WaitForSeconds(delayBeforeNextWave);
+        
         currentWave++;
 
         int baseEnemyCount = 10;
@@ -46,17 +57,19 @@ public class WaveManager : MonoBehaviour
 
         maxNumberOfEnemies = baseEnemyCount + enemiesPerWave * currentWave;
 
-        float delayBeforeNextWave = 5f;
+        SetEnemySpawnerParameters();
 
-        yield return new WaitForSeconds(delayBeforeNextWave);
 
+        yield return null;
+    }
+
+    void SetEnemySpawnerParameters()
+    {
         float baseTimeBetweenEnemies = 10f;
 
         enemySpawner.enemiesPerSecond = maxNumberOfEnemies;
         enemySpawner.timeBetweenEnemies = baseTimeBetweenEnemies / enemySpawner.enemiesPerSecond;
 
         enemySpawner.canSpawnEnemies = true;
-
-        yield return null;
     }
 }

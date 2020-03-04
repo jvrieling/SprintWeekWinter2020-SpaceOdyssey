@@ -1058,6 +1058,7 @@ MonoBehaviour:
   currentNumberOfEnemies: 0
   maxNumberOfEnemies: 5
   enemySpawner: {fileID: 1821706999}
+  isPaused: 0
 --- !u!1 &1269458923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,6 +1142,7 @@ MonoBehaviour:
   currentNumberOfEnemies: 0
   maxNumberOfEnemies: 5
   enemySpawner: {fileID: 867283961}
+  isPaused: 0
 --- !u!1 &1295280929
 GameObject:
   m_ObjectHideFlags: 0
