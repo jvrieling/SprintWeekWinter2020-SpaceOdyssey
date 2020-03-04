@@ -243,7 +243,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: PlayerShootEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  playerNumber: 2
+  playerNumber: 0
   gameCamera: {fileID: 0}
 --- !u!114 &7778966281678474068
 MonoBehaviour:
