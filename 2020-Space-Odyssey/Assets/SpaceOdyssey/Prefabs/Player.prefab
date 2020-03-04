@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d22e329ddf8ab2c44992a004e77ee8d4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.10700178, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -169,6 +169,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7778966281678474065}
+  - component: {fileID: 5319418248685252463}
   - component: {fileID: 7778966281678474067}
   - component: {fileID: 7778966281678474068}
   - component: {fileID: 309521403}
@@ -197,6 +198,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5319418248685252463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778966281678474069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93fcf335c7fd5146a576429980e78df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 2209518655477985575, guid: ce4676e0c0b3df74f9264fa8dd285402,
+    type: 3}
+  audioClip: {fileID: 8300000, guid: e2a9ebbc0da56064f88c51d62038e0e0, type: 3}
+  explo: {fileID: 0}
+  explosionScale: 3
+  collisionTags:
+  - EnemyBullet
 --- !u!114 &7778966281678474067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,10 +229,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54b0b7763e694b741b1e1ceb95fc4a16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectManager: {fileID: 0}
   bulletPrefab: {fileID: 4952203565014493786, guid: 5acf0ab2f5c3dca42ab677e68803b485,
     type: 3}
   bullets: []
-  maxBullets: 0
+  maxBullets: 3
   damageEvent:
     m_PersistentCalls:
       m_Calls: []
