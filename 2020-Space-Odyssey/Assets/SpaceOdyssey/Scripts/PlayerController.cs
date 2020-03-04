@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        BoundaryChecks();
+        BoundaryCheckCircle();
 
         //Use the ship motor from a past assignment.
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal_P" + playerNumber), Input.GetAxisRaw("Vertical_P" + playerNumber));
@@ -71,13 +71,12 @@ public class PlayerController : MonoBehaviour
         objectManager.playerBullets.Remove(bullet);
     }
 
-    /* BoundaryChecks()
+    /* BoundaryCheckCircle()
      * ----------------
      * Locks the player to the Camera boundaries.
-     * Includes a collider size check for its radius (so it doesnt move off screen).
-     * 
+     * Includes a collider size check for its RADIUS (so it doesnt move off screen).
      */
-    void BoundaryChecks()
+    void BoundaryCheckCircle()
     {
         Vector2 topRightCorner = new Vector2(1, 1);
         Vector2 edgeVector = gameCamera.ViewportToWorldPoint(topRightCorner);
