@@ -72,7 +72,7 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: PlayerDeath
+  - name: LoseLives
     clip: {fileID: 8300000, guid: 2f35290d8d4139d4d91852f0fe9c979e, type: 3}
     volume: 0.976
     volumeVariance: 0.058
@@ -81,7 +81,7 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: AddLife
+  - name: GainLives
     clip: {fileID: 8300000, guid: 666101cadf43526429ba23d268a9588e, type: 3}
     volume: 0.976
     volumeVariance: 0.058
@@ -117,9 +117,9 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
-  - name: UI_AddScore
+  - name: Points
     clip: {fileID: 8300000, guid: a16f132dacba78743b3aa9e3e9ea4d7f, type: 3}
-    volume: 0.976
+    volume: 0.092
     volumeVariance: 0.058
     pitch: 1
     pitchVariance: 0.076
