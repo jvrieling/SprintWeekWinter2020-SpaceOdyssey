@@ -65,8 +65,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 2209518655477985575, guid: ce4676e0c0b3df74f9264fa8dd285402,
     type: 3}
-  audioClip: {fileID: 0}
-  explo: {fileID: 0}
   explosionScale: 5
   collisionTags:
   - PlayerBullet
