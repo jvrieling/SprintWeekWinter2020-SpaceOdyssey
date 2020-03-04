@@ -48,6 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
+  scorePopUp: {fileID: 8444306655548680432, guid: 958fdac8e041fe34383db08439ce3902,
+    type: 3}
 --- !u!114 &2937695580620285257
 MonoBehaviour:
   m_ObjectHideFlags: 0

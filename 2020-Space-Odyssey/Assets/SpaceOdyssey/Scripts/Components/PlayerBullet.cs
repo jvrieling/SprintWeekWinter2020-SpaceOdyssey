@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerBullet : MonoBehaviour
 {
+    [HideInInspector]
     public PlayerController owner;
     public GameObject scorePopUp;
 
