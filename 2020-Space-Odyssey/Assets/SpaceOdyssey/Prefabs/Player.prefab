@@ -69,7 +69,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d22e329ddf8ab2c44992a004e77ee8d4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 054db7a7d2d84c347a8e11f9ede668cc, type: 3}
   m_Color: {r: 0, g: 0.10700178, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -149,7 +149,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 38376972f05309d499c68167b6808308, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 153e3dfd7671c3a4893cd45a69acedad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -213,8 +213,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 2209518655477985575, guid: ce4676e0c0b3df74f9264fa8dd285402,
     type: 3}
-  audioClip: {fileID: 8300000, guid: e2a9ebbc0da56064f88c51d62038e0e0, type: 3}
-  explo: {fileID: 0}
   explosionScale: 3
   collisionTags:
   - EnemyBullet
@@ -233,7 +231,7 @@ MonoBehaviour:
   objectManager: {fileID: 0}
   bulletPrefab: {fileID: 4952203565014493786, guid: 5acf0ab2f5c3dca42ab677e68803b485,
     type: 3}
-  bullets: []
+  canShoot: 1
   maxBullets: 3
   damageEvent:
     m_PersistentCalls:
@@ -245,6 +243,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: PlayerShootEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  playerNumber: 0
 --- !u!114 &7778966281678474068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +295,7 @@ MonoBehaviour:
   shoot:
   - {fileID: 8300000, guid: 064949c6c61701c418d4950bedbc2508, type: 3}
   startingPitch: 0.5
+  py: {fileID: 0}
 --- !u!58 &1423191055173930146
 CircleCollider2D:
   m_ObjectHideFlags: 0
