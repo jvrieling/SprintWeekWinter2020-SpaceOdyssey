@@ -103,12 +103,13 @@ public class PlayerController : MonoBehaviour
         isDead = true;
         timeToRespawn = respawnTime;
         transform.position = new Vector3(-1000, -1000, 1000);
+        AddLives(-1);
     }
     public void Respawn()
     {        
         if(lives > 0)
         {
-            AddLives(-1);
+            
             isDead = false;
             transform.position = initalPosition;
             invincible = true;
@@ -125,7 +126,7 @@ public class PlayerController : MonoBehaviour
     public void AddScore(int amt)
     {
         score += amt;
-        AudioManager.instance.Play("Points");
+        //AudioManager.instance.Play("Points");
     }
     public void AddLives(int amt)
     {
