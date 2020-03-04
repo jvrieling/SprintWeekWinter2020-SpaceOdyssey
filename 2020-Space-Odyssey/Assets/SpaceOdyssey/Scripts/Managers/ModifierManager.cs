@@ -10,6 +10,11 @@ public class ModifierManager : MonoBehaviour
     public float speedMultiplier = 1.3f;
     public string toggleFasterEnemies = "M";
 
+    //Toggle Player Movespeed Variables
+    public bool fasterPlayers = false;
+    public float playerSpeedMultiplier = 2f;
+    public string toggleFasterPlayers = "n";
+
     private void Awake()
     {
         objects = GetComponent<ObjectManager>();
@@ -20,6 +25,10 @@ public class ModifierManager : MonoBehaviour
         if (Input.GetKeyDown(toggleFasterEnemies))
         {
             ToggleFasterEnemies();
+        }
+        if (Input.GetKeyDown(toggleFasterPlayers))
+        {
+            ToggleFasterPlayers();
         }
     }
 
@@ -42,5 +51,19 @@ public class ModifierManager : MonoBehaviour
             return speedMultiplier;
         }
         return 1;
+    }
+
+    public void ToggleFasterPlayers()
+    {
+        if (!fasterPlayers)
+        {
+            fasterPlayers = true;
+            objects.MultiplyPlayerSpeed(playerSpeedMultiplier);
+
+        } else
+        {
+            fasterPlayers = false;
+            objects.MultiplyPlayerSpeed(1);
+        }
     }
 }

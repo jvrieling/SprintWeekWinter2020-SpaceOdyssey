@@ -5,6 +5,9 @@ public class ShipMotor : MonoBehaviour
 {
     public float AccelerationTime = 1;
     public float DecelerationTime = 1;
+
+    //*
+    public float baseMaxSpeed = 1;
     public float MaxSpeed = 1;
 
     private float velocity;
