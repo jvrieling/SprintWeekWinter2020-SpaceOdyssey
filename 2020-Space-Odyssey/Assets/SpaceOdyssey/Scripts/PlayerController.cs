@@ -17,16 +17,26 @@ public class PlayerController : MonoBehaviour
     public PlayerShootEvent shootEvent;
 
     public int playerNumber;
+    public Camera gameCamera;
+    private new CircleCollider2D collider;
 
     void Awake()
     {
         motor = GetComponent<ShipMotor>();
+
+        if (!gameCamera)
+            gameCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
+        if (!collider && GetComponent<CircleCollider2D>())
+            collider = GetComponent<CircleCollider2D>();
     }
     public bool Getbool()
     { return canShoot; }
 
     void Update()
     {
+        BoundaryCheckCircle();
+
         //Use the ship motor from a past assignment.
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal_P" + playerNumber), Input.GetAxisRaw("Vertical_P" + playerNumber));
 
@@ -60,9 +70,40 @@ public class PlayerController : MonoBehaviour
         objectManager.playerBullets.Remove(bullet);
     }
 
+
     public void addScore()
     {
 
+    }
+
+    /* BoundaryCheckCircle()
+     * ----------------
+     * Locks the player to the Camera boundaries.
+     * Includes a collider size check for its RADIUS (so it doesnt move off screen).
+     */
+    void BoundaryCheckCircle()
+    {
+        Vector2 topRightCorner = new Vector2(1, 1);
+        Vector2 edgeVector = gameCamera.ViewportToWorldPoint(topRightCorner);
+
+        float height = edgeVector.y * 2;
+        float width = edgeVector.x * 2;
+
+        switch(playerNumber) 
+        {
+            case 1: //Left side
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x, -width / 2 + collider.radius, 0 - collider.radius),
+                                        Mathf.Clamp(transform.position.y, -height / 2 + collider.radius, height / 2 - collider.radius),
+                                        transform.position.z);
+
+                break;
+
+            case 2: //Right side
+                transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0 + collider.radius, width / 2 - collider.radius),
+                                        Mathf.Clamp(transform.position.y, -height / 2 + collider.radius, height / 2 - collider.radius),
+                                        transform.position.z);
+                break;
+        }
     }
 
 }
