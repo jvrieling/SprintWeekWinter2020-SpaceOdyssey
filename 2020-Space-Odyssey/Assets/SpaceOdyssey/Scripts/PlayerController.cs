@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         motor = GetComponent<ShipMotor>();
-        bullets = new List<PlayerBullet>();
+        //bullets = new List<PlayerBullet>();
 
         if (!gameCamera)
             gameCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     }
     public bool Getbool()
     { return canShoot; }
-
+    
     void Update()
     {
         BoundaryCheckCircle();
