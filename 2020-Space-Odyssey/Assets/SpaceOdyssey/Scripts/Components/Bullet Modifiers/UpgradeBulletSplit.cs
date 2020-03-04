@@ -21,10 +21,6 @@ public class UpgradeBulletSplit : MonoBehaviour
 
     private GameObject copiedObject;
     
-    void Start()
-    {
-
-    }
     
     void Update()
     {
