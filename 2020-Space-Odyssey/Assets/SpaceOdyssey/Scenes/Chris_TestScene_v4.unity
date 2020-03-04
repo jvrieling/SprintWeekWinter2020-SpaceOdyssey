@@ -590,6 +590,11 @@ PrefabInstance:
       propertyPath: invincible
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7778966281678474067, guid: 56158c2410b9baf48b69097ab4c0aa63,
+        type: 3}
+      propertyPath: shotgunPelletCount
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5965655390489142211, guid: 56158c2410b9baf48b69097ab4c0aa63,
         type: 3}
       propertyPath: m_Color.r
@@ -618,6 +623,11 @@ PrefabInstance:
     - target: {fileID: 7823612472250831875, guid: 56158c2410b9baf48b69097ab4c0aa63,
         type: 3}
       propertyPath: canBulletSplit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823612472250831875, guid: 56158c2410b9baf48b69097ab4c0aa63,
+        type: 3}
+      propertyPath: canShotgunShoot
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
