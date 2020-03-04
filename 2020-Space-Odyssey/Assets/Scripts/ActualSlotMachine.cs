@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class ActualSlotMachine : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public Sprite[] Sprites;
+    public float StopTime;
+
+   
+    void FixedUpdate()
     {
-        
+        gameObject.GetComponent<UnityEngine.UI.Image>().sprite = Sprites[Random.Range(0, Sprites.Length)];
     }
 
-    // Update is called once per frame
-    void Update()
+    public void EndRand()
     {
-        
+        enabled = false;
     }
+
+    public void StartRand()
+    {
+        enabled = true;
+    }
+
 }
