@@ -189,11 +189,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7778966281678474065}
-  - component: {fileID: 5319418248685252463}
   - component: {fileID: 7778966281678474067}
+  - component: {fileID: 7823612472250831875}
   - component: {fileID: 7778966281678474068}
-  - component: {fileID: 309521403}
+  - component: {fileID: 5319418248685252463}
   - component: {fileID: 6917849356131765044}
+  - component: {fileID: 309521403}
   - component: {fileID: 1423191055173930146}
   - component: {fileID: 8247897067007248522}
   m_Layer: 11
@@ -219,23 +220,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5319418248685252463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7778966281678474069}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b93fcf335c7fd5146a576429980e78df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 2209518655477985575, guid: ce4676e0c0b3df74f9264fa8dd285402,
-    type: 3}
-  explosionScale: 3
-  collisionTags:
-  - EnemyBullet
 --- !u!114 &7778966281678474067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +245,22 @@ MonoBehaviour:
   respawnTime: 1
   invincible: 0
   invicibilityTime: 2
+  bmManager: {fileID: 0}
+--- !u!114 &7823612472250831875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778966281678474069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d2757d5106aa254cb8ea85733d13138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
+  canBulletSplit: 0
+  canShotgunShoot: 0
 --- !u!114 &7778966281678474068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +277,39 @@ MonoBehaviour:
   DecelerationTime: 0.5
   baseMaxSpeed: 3
   MaxSpeed: 3
+--- !u!114 &5319418248685252463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778966281678474069}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93fcf335c7fd5146a576429980e78df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 2209518655477985575, guid: ce4676e0c0b3df74f9264fa8dd285402,
+    type: 3}
+  explosionScale: 3
+  collisionTags:
+  - EnemyBullet
+--- !u!114 &6917849356131765044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778966281678474069}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef3396ba25c123439d3a6317cec8f23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shoot:
+  - {fileID: 8300000, guid: 064949c6c61701c418d4950bedbc2508, type: 3}
+  startingPitch: 0.5
+  py: {fileID: 0}
 --- !u!50 &309521403
 Rigidbody2D:
   serializedVersion: 4
@@ -298,22 +331,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6917849356131765044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7778966281678474069}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ef3396ba25c123439d3a6317cec8f23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shoot:
-  - {fileID: 8300000, guid: 064949c6c61701c418d4950bedbc2508, type: 3}
-  startingPitch: 0.5
-  py: {fileID: 0}
 --- !u!58 &1423191055173930146
 CircleCollider2D:
   m_ObjectHideFlags: 0
