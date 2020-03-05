@@ -79,44 +79,40 @@ public class PlayerController : MonoBehaviour
     }
     public bool Getbool()
     { return canShoot; }
-    
+
     void Update()
     {
-        if (currentFireCooldown < maxFireCooldown)
-            currentFireCooldown += Time.deltaTime;
-
-        if (!isDead)
-            BoundaryCheckCircle();
-
-        if (!bmManager.canShotgunShoot)
-            ShootBullet();
-        else
-            FireShotgun();
-
-        //Use the ship motor from a past assignment.
-        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal_P" + playerNumber), Input.GetAxisRaw("Vertical_P" + playerNumber));
-
-        motor.HandleMovementInput(input);
-
-        
-
         if (isDead)
         {
             timeToRespawn -= Time.deltaTime;
-            if(timeToRespawn <= 0)
+            if (timeToRespawn <= 0)
             {
                 Respawn();
             }
         }
-        if (invincible)
+        else
         {
-            invicibilityLeft -= Time.deltaTime;
-            if(invicibilityLeft <= 0)
+            BoundaryCheckCircle();
+
+            if (!bmManager.canShotgunShoot)
+                ShootBullet();
+            else
+                FireShotgun();
+
+            //Use the ship motor from a past assignment.
+            Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal_P" + playerNumber), Input.GetAxisRaw("Vertical_P" + playerNumber));
+
+            motor.HandleMovementInput(input);
+
+            if (invincible)
             {
-                invincible = false;
+                invicibilityLeft -= Time.deltaTime;
+                if (invicibilityLeft <= 0)
+                {
+                    invincible = false;
+                }
             }
         }
-
     }
 
 
@@ -219,7 +215,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!invincible && (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyBullet"))
+        if (!invincible && (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyBullet"))
         {
             //damageEvent.Invoke();
             KillPlayer();
@@ -233,9 +229,9 @@ public class PlayerController : MonoBehaviour
         AddLives(-1);
     }
     public void Respawn()
-    {        
-        if(lives > 0)
-        {            
+    {
+        if (lives > 0)
+        {
             isDead = false;
             transform.position = initalPosition;
             invincible = true;
@@ -256,14 +252,17 @@ public class PlayerController : MonoBehaviour
     public void AddScore(int amt)
     {
         score += amt;
+        UIManager.instance.SetScore(playerNumber, score);
     }
     public void AddLives(int amt)
     {
         lives += amt;
-        if(amt > 0)
+        UIManager.instance.SetLives(playerNumber, lives);
+        if (amt > 0)
         {
             AudioManager.instance.Play("GainLives");
-        } else
+        }
+        else
         {
             AudioManager.instance.Play("LoseLives");
         }
@@ -284,20 +283,18 @@ public class PlayerController : MonoBehaviour
             float height = edgeVector.y * 2;
             float width = edgeVector.x * 2;
 
-            float lowerBorderModifier = height * 0.125f;
-            float upperBorderModifier = height * 0.1f;
-
             switch (playerNumber)
             {
                 case 1: //Left side
                     transform.position = new Vector3(Mathf.Clamp(transform.position.x, -width / 2 + collider.radius, 0 - collider.radius),
-                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius + lowerBorderModifier, height / 2 - collider.radius - upperBorderModifier),
+                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius, height / 2 - collider.radius),
                                             transform.position.z);
+
                     break;
 
                 case 2: //Right side
                     transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0 + collider.radius, width / 2 - collider.radius),
-                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius + lowerBorderModifier, height / 2 - collider.radius - upperBorderModifier),
+                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius, height / 2 - collider.radius),
                                             transform.position.z);
                     break;
             }
@@ -309,6 +306,6 @@ public class PlayerController : MonoBehaviour
 
 
 [System.Serializable]
-public class PlayerDamagedEvent : UnityEvent {}
+public class PlayerDamagedEvent : UnityEvent { }
 [System.Serializable]
 public class PlayerShootEvent : UnityEvent { }
