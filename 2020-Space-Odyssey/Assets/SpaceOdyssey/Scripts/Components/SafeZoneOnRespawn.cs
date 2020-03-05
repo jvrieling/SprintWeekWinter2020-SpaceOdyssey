@@ -21,13 +21,6 @@ public class SafeZoneOnRespawn : MonoBehaviour
     {
         if (!playerController && GetComponent<PlayerController>())
             playerController = GetComponent<PlayerController>();
-
-        if (!safeZonePrefab)
-        {
-            safeZonePrefab = AssetDatabase.LoadAssetAtPath("Assets/SpaceOdyssey/Prefabs/Safe Zone.prefab",
-            typeof(GameObject)) as GameObject;
-        }
-
     }
 
     /* ActivateSafeZone()

@@ -304,7 +304,8 @@ MonoBehaviour:
   zoneDuration: 1
   zoneRetainDuration: 3
   playerController: {fileID: 0}
-  safeZonePrefab: {fileID: 0}
+  safeZonePrefab: {fileID: 6613354542463926056, guid: e35a6f80e78193a4a83d6bf34a35c2da,
+    type: 3}
 --- !u!114 &5319418248685252463
 MonoBehaviour:
   m_ObjectHideFlags: 0
