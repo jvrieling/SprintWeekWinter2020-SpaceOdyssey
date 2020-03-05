@@ -52725,7 +52725,9 @@ MonoBehaviour:
   - Enemy
   - EnemyBullet
   currentDuration: 0
-  maxDuration: 0
+  maxDuration: 6
+  owner: {fileID: 0}
+  adjustVector: {x: 0, y: 0.5, z: 0}
   killswitch: 0
   animator: {fileID: 0}
 --- !u!95 &7009110761416584289

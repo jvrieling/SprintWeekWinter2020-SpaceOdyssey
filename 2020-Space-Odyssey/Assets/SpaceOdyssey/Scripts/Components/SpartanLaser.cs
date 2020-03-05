@@ -17,11 +17,14 @@ public class SpartanLaser : MonoBehaviour
 
     public Transform owner;
 
+    public Vector3 adjustVector;
+
     //Test
     public bool killswitch;
 
     [SerializeField]
     private Animator animator;
+
 
 
 
@@ -46,6 +49,8 @@ public class SpartanLaser : MonoBehaviour
 
         if (killswitch)
             DestroySelf();
+
+        FollowOwner();
     }
     
 
@@ -55,6 +60,15 @@ public class SpartanLaser : MonoBehaviour
         Destroy(transform.parent.gameObject);
     }
 
+
+    void FollowOwner()
+    {
+        if (owner)
+        {
+            Debug.Log("Following Player");
+            transform.parent.position = owner.position + adjustVector;
+        }
+    }
 
 
     private void OnTriggerEnter2D(Collider2D other)

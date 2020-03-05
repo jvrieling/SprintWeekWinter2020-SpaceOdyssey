@@ -250,6 +250,13 @@ MonoBehaviour:
   maxFireCooldown: 0.25
   shotgunPelletCount: 3
   pelletAngleInDegrees: 45
+  laserPrefab: {fileID: 1829337809106988296, guid: 5c7ad9f45192ce842a6568a924a800a9,
+    type: 3}
+  currentLaserDuration: 0
+  maxLaserDuration: 6
+  currentLaserCooldown: 0
+  maxLaserCooldown: 10
+  canLaser: 0
   bmManager: {fileID: 0}
   safeZoneOnRespawn: {fileID: 0}
 --- !u!114 &7823612472250831875
@@ -267,6 +274,7 @@ MonoBehaviour:
   playerController: {fileID: 0}
   canBulletSplit: 0
   canShotgunShoot: 0
+  canSpartanLaser: 0
 --- !u!114 &7778966281678474068
 MonoBehaviour:
   m_ObjectHideFlags: 0

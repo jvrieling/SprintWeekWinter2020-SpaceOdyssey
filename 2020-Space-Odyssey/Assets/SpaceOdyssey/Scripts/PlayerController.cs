@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     public float pelletAngleInDegrees = 45f;
 
     [Header("Spartan Laser Modifiers")]
+    public GameObject laserPrefab;
     public float currentLaserDuration;
     public float maxLaserDuration = 10f;
     public float currentLaserCooldown;
@@ -95,12 +96,18 @@ public class PlayerController : MonoBehaviour
             if (currentFireCooldown < maxFireCooldown)
                 currentFireCooldown += Time.deltaTime;
 
+            if (currentLaserCooldown < maxLaserCooldown)
+                currentLaserCooldown += Time.deltaTime;
+
             BoundaryCheckCircle();
 
             if (!bmManager.canShotgunShoot)
                 ShootBullet();
             else
                 FireShotgun();
+
+            if (bmManager.canSpartanLaser)
+                FireSpartanLaser();
 
             //Use the ship motor from a past assignment.
             Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal_P" + playerNumber), Input.GetAxisRaw("Vertical_P" + playerNumber));
@@ -121,6 +128,9 @@ public class PlayerController : MonoBehaviour
 
     private void ShootBullet()
     {
+        if (currentLaserCooldown < 0)
+            return;
+
         if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot && currentFireCooldown >= maxFireCooldown)
         {
             currentFireCooldown = 0;
@@ -151,6 +161,9 @@ public class PlayerController : MonoBehaviour
      */
     private void FireShotgun()
     {
+        if (currentLaserCooldown < 0)
+            return;
+
         if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot
             && currentFireCooldown >= maxFireCooldown)
         {
@@ -190,26 +203,26 @@ public class PlayerController : MonoBehaviour
      */
     void FireSpartanLaser()
     {
-        if (Input.GetAxisRaw("Fire2_P" + playerNumber) == 1 && canShoot
-            && currentFireCooldown >= maxFireCooldown)
+
+        if (Input.GetAxisRaw("Fire2_P" + playerNumber) == 1 && currentLaserCooldown >= maxLaserCooldown)
         {
-            currentFireCooldown = 0;
+            currentLaserCooldown = 0 - maxLaserDuration;
 
-            //shootEvent.Invoke();
-            canShoot = false;
-            GameObject tempBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            tempBullet.name = "Player Bullet";
-            tempBullet.GetComponent<PlayerBullet>().owner = this;
+            GameObject prefab = Instantiate(laserPrefab, transform.position, Quaternion.identity);
 
-            if (bmManager.canBulletSplit)
-                tempBullet.GetComponent<UpgradeBulletSplit>().isActive = true;
+            prefab.name = "Player Spartan Laser";
 
-            objectManager.playerBullets.Add(tempBullet.GetComponent<PlayerBullet>());
+            SpartanLaser laser = prefab.GetComponentInChildren<SpartanLaser>();
+
+            laser.owner = transform;
+            laser.maxDuration = maxLaserDuration;
+
+
             AudioManager.instance.Play("Laser");
         }
         else if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 0)
         {
-            canShoot = true;
+
         }
     }
 
