@@ -41,6 +41,13 @@ public class PlayerController : MonoBehaviour
     public int shotgunPelletCount = 3;
     public float pelletAngleInDegrees = 45f;
 
+    [Header("Spartan Laser Modifiers")]
+    public float currentLaserDuration;
+    public float maxLaserDuration = 10f;
+    public float currentLaserCooldown;
+    public float maxLaserCooldown = 10f; //Cooldown adds the maxLaserDuration to its total value.
+    public bool canLaser = false;
+
     [HideInInspector]
     public BulletModifierManager bmManager;
     [HideInInspector]
@@ -176,6 +183,39 @@ public class PlayerController : MonoBehaviour
             canShoot = true;
         }
     }
+
+
+    /* FireSpartanLaser
+     * ----------------
+     * Functions very similar to shooting a bullet, but
+     * with a different prefab and button.
+     */
+    void FireSpartanLaser()
+    {
+        if (Input.GetAxisRaw("Fire2_P" + playerNumber) == 1 && canShoot
+            && currentFireCooldown >= maxFireCooldown)
+        {
+            currentFireCooldown = 0;
+
+            //shootEvent.Invoke();
+            canShoot = false;
+            GameObject tempBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            tempBullet.name = "Player Bullet";
+            tempBullet.GetComponent<PlayerBullet>().owner = this;
+
+            if (bmManager.canBulletSplit)
+                tempBullet.GetComponent<UpgradeBulletSplit>().isActive = true;
+
+            objectManager.playerBullets.Add(tempBullet.GetComponent<PlayerBullet>());
+            AudioManager.instance.Play("Laser");
+        }
+        else if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 0)
+        {
+            canShoot = true;
+        }
+    }
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
