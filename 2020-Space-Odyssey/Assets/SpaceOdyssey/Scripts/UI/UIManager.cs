@@ -64,6 +64,17 @@ public class UIManager : MonoBehaviour
                 p1ModifierSlots[i].color = new Color(1, 1, 1, 0);
             }
         }
+        for (int i = 0; i < p2ModifierSlots.Length; i++)
+        {
+            if (p2ModifierDisplayed[i])
+            {
+                p2ModifierSlots[i].color = new Color(1, 1, 1, 1);
+            }
+            else
+            {
+                p2ModifierSlots[i].color = new Color(1, 1, 1, 0);
+            }
+        }
 
     }
 
