@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 71dde3dea0eff1d4daddbd97605ad080
+=======
+guid: d0427b4f755bf6340ad07da6452c229d
+>>>>>>> origin/AssembleStuff
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

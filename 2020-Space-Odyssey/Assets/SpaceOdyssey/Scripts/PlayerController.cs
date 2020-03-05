@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
+<<<<<<< HEAD
         if (currentFireCooldown < maxFireCooldown)
             currentFireCooldown += Time.deltaTime;
 
@@ -93,6 +94,8 @@ public class PlayerController : MonoBehaviour
 
         
 
+=======
+>>>>>>> origin/AssembleStuff
         if (isDead)
         {
             timeToRespawn -= Time.deltaTime;
@@ -103,8 +106,27 @@ public class PlayerController : MonoBehaviour
         }
         if (invincible)
         {
+<<<<<<< HEAD
             invicibilityLeft -= Time.deltaTime;
             if(invicibilityLeft <= 0)
+=======
+            if (currentFireCooldown < maxFireCooldown)
+                currentFireCooldown += Time.deltaTime;
+
+            BoundaryCheckCircle();
+
+            if (!bmManager.canShotgunShoot)
+                ShootBullet();
+            else
+                FireShotgun();
+
+            //Use the ship motor from a past assignment.
+            Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal_P" + playerNumber), Input.GetAxisRaw("Vertical_P" + playerNumber));
+
+            motor.HandleMovementInput(input);
+
+            if (invincible)
+>>>>>>> origin/AssembleStuff
             {
                 invincible = false;
             }
@@ -115,8 +137,12 @@ public class PlayerController : MonoBehaviour
 
     private void ShootBullet()
     {
+<<<<<<< HEAD
         if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot 
             && currentFireCooldown >= maxFireCooldown)
+=======
+        if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot && currentFireCooldown >= maxFireCooldown)
+>>>>>>> origin/AssembleStuff
         {
             currentFireCooldown = 0;
 
@@ -244,20 +270,18 @@ public class PlayerController : MonoBehaviour
             float height = edgeVector.y * 2;
             float width = edgeVector.x * 2;
 
-            float lowerBorderModifier = height * 0.125f;
-            float upperBorderModifier = height * 0.1f;
-
             switch (playerNumber)
             {
                 case 1: //Left side
                     transform.position = new Vector3(Mathf.Clamp(transform.position.x, -width / 2 + collider.radius, 0 - collider.radius),
-                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius + lowerBorderModifier, height / 2 - collider.radius - upperBorderModifier),
+                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius, height / 2 - collider.radius),
                                             transform.position.z);
+
                     break;
 
                 case 2: //Right side
                     transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0 + collider.radius, width / 2 - collider.radius),
-                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius + lowerBorderModifier, height / 2 - collider.radius - upperBorderModifier),
+                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius, height / 2 - collider.radius),
                                             transform.position.z);
                     break;
             }
