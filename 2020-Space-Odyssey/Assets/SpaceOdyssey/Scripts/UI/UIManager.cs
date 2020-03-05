@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
     public Text p2Score;
     public Text p2Lives;
     public string[] p2Modifiers;
+    public bool[] p2ModifierDisplayed;
     public Image[] p2ModifierSlots;
     private int p2OccupiedSlots = 0;
 
@@ -32,6 +33,7 @@ public class UIManager : MonoBehaviour
         p1Modifiers = new string[8];
         p2Modifiers = new string[8];
         p1ModifierDisplayed = new bool[8];
+        p2ModifierDisplayed = new bool[8];
     }
 
     private void Update()
@@ -86,8 +88,32 @@ public class UIManager : MonoBehaviour
                 case "fasterEnemies":
                     p1ModifierDisplayed[2] = true;
                     break;
-                case "megaLazer":
+                case "spartanLaser":
                     p1ModifierDisplayed[3] = true;
+                    break;
+            }
+        }
+        if (player == 2)
+        {
+            switch (mod)
+            {
+                case "multiShot":
+                    p2ModifierDisplayed[0] = true;
+                    break;
+                case "splitShot":
+                    p2ModifierDisplayed[7] = true;
+                    break;
+                case "decreaseMoveSpeed":
+                    p2ModifierDisplayed[6] = true;
+                    break;
+                case "increaseMoveSpeed":
+                    p2ModifierDisplayed[1] = true;
+                    break;
+                case "fasterEnemies":
+                    p2ModifierDisplayed[2] = true;
+                    break;
+                case "spartanLaser":
+                    p2ModifierDisplayed[3] = true;
                     break;
             }
         }
