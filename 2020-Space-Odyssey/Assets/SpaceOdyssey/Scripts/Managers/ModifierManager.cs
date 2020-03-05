@@ -56,6 +56,9 @@ public class ModifierManager : MonoBehaviour
                 fasterEnemies = true;
                 objects.MultiplyEnemySpeed(speedMultiplier);
                 break;
+            case "spartanLaser":
+                bulMod.canSpartanLaser = true;
+                break;
         }
     }
 
