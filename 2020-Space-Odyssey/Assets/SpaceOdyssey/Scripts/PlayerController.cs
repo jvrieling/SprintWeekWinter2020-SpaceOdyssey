@@ -19,20 +19,24 @@ public class PlayerController : MonoBehaviour
     public int playerNumber;
     public Camera gameCamera;
     private new CircleCollider2D collider;
-
+    [Space]
     public int score;
     public int lives;
-
+    [Space]
     public bool isDead = false;
     public float respawnTime = 1f;
     private float timeToRespawn = 0;
     private Vector3 initalPosition;
-
+    [Space]
     public bool invincible = false;
     public float invicibilityTime = 2;
     private float invicibilityLeft;
 
     //Gun Modifiers
+    [Space]
+    public float currentFireCooldown;
+    public float maxFireCooldown = 0.5f;
+
     [Header("Shotgun Modifiers")]
     public int shotgunPelletCount = 3;
     public float pelletAngleInDegrees = 45f;
@@ -71,7 +75,11 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
-        BoundaryCheckCircle();
+        if (currentFireCooldown < maxFireCooldown)
+            currentFireCooldown += Time.deltaTime;
+
+        if (!isDead)
+            BoundaryCheckCircle();
 
         if (!bmManager.canShotgunShoot)
             ShootBullet();
@@ -108,8 +116,10 @@ public class PlayerController : MonoBehaviour
     private void ShootBullet()
     {
         if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot 
-            && objectManager.playerBullets.Count < maxBullets)
+            && currentFireCooldown >= maxFireCooldown)
         {
+            currentFireCooldown = 0;
+
             //shootEvent.Invoke();
             canShoot = false;
             GameObject tempBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
@@ -137,8 +147,10 @@ public class PlayerController : MonoBehaviour
     private void FireShotgun()
     {
         if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot
-            && objectManager.playerBullets.Count < maxBullets)
+            && currentFireCooldown >= maxFireCooldown)
         {
+            currentFireCooldown = 0;
+
             //shootEvent.Invoke();
             canShoot = false;
 

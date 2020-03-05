@@ -13,7 +13,9 @@ public class SafeZone : MonoBehaviour
 
     public float zoneDuration; //Time it takes to fully reach the max radius.
     public float zoneRetainDuration; //Time it lasts after reaching max radius.
+    public float zoneMaxRetainDuration;
 
+    private SpriteRenderer sprite;
 
     [SerializeField]
     private new CircleCollider2D collider2D;
@@ -23,8 +25,12 @@ public class SafeZone : MonoBehaviour
         if (!collider2D && GetComponent<CircleCollider2D>())
             collider2D = GetComponent<CircleCollider2D>();
 
-        //collider2D.radius = zoneBaseRadius;
+        if (!sprite && GetComponent<SpriteRenderer>())
+            sprite = GetComponent<SpriteRenderer>();
+
         transform.localScale = new Vector3(zoneBaseRadius, zoneBaseRadius);
+
+        zoneMaxRetainDuration = zoneRetainDuration;
     }
 
     private void Update()
@@ -39,11 +45,20 @@ public class SafeZone : MonoBehaviour
     {
         if (transform.localScale.x < zoneMaxRadius)
         {
-            transform.localScale += new Vector3(zoneMaxRadius / zoneDuration, 
+            transform.localScale += new Vector3(zoneMaxRadius / zoneDuration,
                                                 zoneMaxRadius / zoneDuration) * Time.deltaTime;
         }
         else
+        {
+            Color tmp = sprite.color;
+
+            //NEED TO FIND PROPER FORMULA
+            tmp.a -= 1/(zoneMaxRetainDuration*0.608f) * Time.deltaTime;
+
+            sprite.color = tmp;
+
             zoneRetainDuration -= Time.deltaTime;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
