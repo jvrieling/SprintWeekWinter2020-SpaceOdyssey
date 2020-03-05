@@ -57,8 +57,6 @@ public class ObjectManager : MonoBehaviour
         bullets.Remove(bullet);
     }
 
-
-
     public void MultiplyPlayerSpeed(float multiplier)
     {
         float finalSpeed = player.GetComponent<ShipMotor>().baseMaxSpeed * multiplier;

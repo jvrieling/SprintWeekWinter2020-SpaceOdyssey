@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 887261995045832077}
   - component: {fileID: 887261995045832067}
   - component: {fileID: 4741299966619546726}
+  - component: {fileID: 7094534606444633132}
   m_Layer: 8
   m_Name: Enemy Ship
   m_TagString: Enemy
@@ -65,8 +66,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 2209518655477985575, guid: ce4676e0c0b3df74f9264fa8dd285402,
     type: 3}
-  audioClip: {fileID: 0}
-  explo: {fileID: 0}
   explosionScale: 5
   collisionTags:
   - PlayerBullet
@@ -121,6 +120,25 @@ CapsuleCollider2D:
   m_Offset: {x: -0.019766927, y: 0.0056477785}
   m_Size: {x: 0.36445528, y: 0.740206}
   m_Direction: 0
+--- !u!114 &7094534606444633132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887261995045832065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5ca0f3732bc80b45939a442e143aee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modifierPrefabs:
+  - {fileID: 6013570732223864860, guid: 828fde8829c1e0b4a985089b35fc54ec, type: 3}
+  - {fileID: 4355286296683428719, guid: 27123e64fd3304d418799a33c4765253, type: 3}
+  - {fileID: 6769692364220286112, guid: 1fefe44f6753a344b95d595f3ee36840, type: 3}
+  - {fileID: 6939975233079002267, guid: d26caa73acbe7614c85b996e05a83091, type: 3}
+  - {fileID: 5728937545738835251, guid: bca5c2aa5b25af042899d602389b68f3, type: 3}
+  dropChance: 0.3
 --- !u!1 &5659147107804123912
 GameObject:
   m_ObjectHideFlags: 0

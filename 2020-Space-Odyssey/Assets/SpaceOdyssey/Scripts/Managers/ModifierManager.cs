@@ -13,6 +13,7 @@ public class ModifierManager : MonoBehaviour
     //Toggle Player Movespeed Variables
     public bool fasterPlayers = false;
     public float playerSpeedMultiplier = 2f;
+    public float playerSlowerSpeedMultiplier = 0.75f;
     public string toggleFasterPlayers = "n";
 
     private void Awake()
@@ -34,10 +35,26 @@ public class ModifierManager : MonoBehaviour
 
     public void ToggleModifier(string mod)
     {
+        BulletModifierManager bulMod = objects.player.GetComponent<BulletModifierManager>();
         switch (mod)
         {
             case "splitShot":
-
+                bulMod.canBulletSplit = true;
+                break;
+            case "multiShot":
+                bulMod.canShotgunShoot = true;
+                break;
+            case "increaseMoveSpeed":
+                fasterPlayers = true;
+                objects.MultiplyPlayerSpeed(playerSpeedMultiplier);
+                break;
+            case "decreaseMoveSpeed":
+                fasterPlayers = true;
+                objects.MultiplyPlayerSpeed(playerSlowerSpeedMultiplier);
+                break;
+            case "fasterEnemies":
+                fasterEnemies = true;
+                objects.MultiplyEnemySpeed(speedMultiplier);
                 break;
         }
     }

@@ -172,14 +172,13 @@ public class PlayerController : MonoBehaviour
     {
         isDead = true;
         timeToRespawn = respawnTime;
-        transform.position = new Vector3(-1000, -1000, 1000);
+        transform.position = new Vector3(-1000, -1000, 0);
         AddLives(-1);
     }
     public void Respawn()
     {        
         if(lives > 0)
-        {
-            
+        {            
             isDead = false;
             transform.position = initalPosition;
             invincible = true;
@@ -196,7 +195,6 @@ public class PlayerController : MonoBehaviour
     public void AddScore(int amt)
     {
         score += amt;
-        //AudioManager.instance.Play("Points");
     }
     public void AddLives(int amt)
     {
@@ -217,26 +215,29 @@ public class PlayerController : MonoBehaviour
      */
     void BoundaryCheckCircle()
     {
-        Vector2 topRightCorner = new Vector2(1, 1);
-        Vector2 edgeVector = gameCamera.ViewportToWorldPoint(topRightCorner);
-
-        float height = edgeVector.y * 2;
-        float width = edgeVector.x * 2;
-
-        switch(playerNumber) 
+        if (!isDead)
         {
-            case 1: //Left side
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x, -width / 2 + collider.radius, 0 - collider.radius),
-                                        Mathf.Clamp(transform.position.y, -height / 2 + collider.radius, height / 2 - collider.radius),
-                                        transform.position.z);
+            Vector2 topRightCorner = new Vector2(1, 1);
+            Vector2 edgeVector = gameCamera.ViewportToWorldPoint(topRightCorner);
 
-                break;
+            float height = edgeVector.y * 2;
+            float width = edgeVector.x * 2;
 
-            case 2: //Right side
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0 + collider.radius, width / 2 - collider.radius),
-                                        Mathf.Clamp(transform.position.y, -height / 2 + collider.radius, height / 2 - collider.radius),
-                                        transform.position.z);
-                break;
+            switch (playerNumber)
+            {
+                case 1: //Left side
+                    transform.position = new Vector3(Mathf.Clamp(transform.position.x, -width / 2 + collider.radius, 0 - collider.radius),
+                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius, height / 2 - collider.radius),
+                                            transform.position.z);
+
+                    break;
+
+                case 2: //Right side
+                    transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0 + collider.radius, width / 2 - collider.radius),
+                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius, height / 2 - collider.radius),
+                                            transform.position.z);
+                    break;
+            }
         }
     }
 
