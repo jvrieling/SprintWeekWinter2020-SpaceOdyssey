@@ -195,11 +195,13 @@ public class PlayerController : MonoBehaviour
     public void AddScore(int amt)
     {
         score += amt;
+        UIManager.instance.SetScore(playerNumber, score);
     }
     public void AddLives(int amt)
     {
         lives += amt;
-        if(amt > 0)
+        UIManager.instance.SetLives(playerNumber, lives);
+        if (amt > 0)
         {
             AudioManager.instance.Play("GainLives");
         } else
