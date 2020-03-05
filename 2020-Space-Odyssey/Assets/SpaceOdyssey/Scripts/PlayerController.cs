@@ -19,26 +19,32 @@ public class PlayerController : MonoBehaviour
     public int playerNumber;
     public Camera gameCamera;
     private new CircleCollider2D collider;
-
+    [Space]
     public int score;
     public int lives;
-
+    [Space]
     public bool isDead = false;
     public float respawnTime = 1f;
     private float timeToRespawn = 0;
     private Vector3 initalPosition;
-
+    [Space]
     public bool invincible = false;
     public float invicibilityTime = 2;
     private float invicibilityLeft;
 
     //Gun Modifiers
+    [Space]
+    public float currentFireCooldown;
+    public float maxFireCooldown = 0.5f;
+
     [Header("Shotgun Modifiers")]
     public int shotgunPelletCount = 3;
     public float pelletAngleInDegrees = 45f;
 
     [HideInInspector]
     public BulletModifierManager bmManager;
+    [HideInInspector]
+    public SafeZoneOnRespawn safeZoneOnRespawn;
 
     void Awake()
     {
@@ -49,62 +55,71 @@ public class PlayerController : MonoBehaviour
 
         //bullets = new List<PlayerBullet>();
 
-        if (!gameCamera)
+        if (!gameCamera && GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>())
             gameCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
         if (!collider && GetComponent<CircleCollider2D>())
             collider = GetComponent<CircleCollider2D>();
 
-        if (!bmManager)
+        if (!bmManager && GetComponent<BulletModifierManager>())
             bmManager = GetComponent<BulletModifierManager>();
+
+        if (!safeZoneOnRespawn && GetComponent<SafeZoneOnRespawn>())
+            safeZoneOnRespawn = GetComponent<SafeZoneOnRespawn>();
 
         initalPosition = transform.position;
 
     }
     public bool Getbool()
     { return canShoot; }
-
+    
     void Update()
     {
+        if (currentFireCooldown < maxFireCooldown)
+            currentFireCooldown += Time.deltaTime;
+
+        if (!isDead)
+            BoundaryCheckCircle();
+
+        if (!bmManager.canShotgunShoot)
+            ShootBullet();
+        else
+            FireShotgun();
+
+        //Use the ship motor from a past assignment.
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal_P" + playerNumber), Input.GetAxisRaw("Vertical_P" + playerNumber));
+
+        motor.HandleMovementInput(input);
+
+        
+
         if (isDead)
         {
             timeToRespawn -= Time.deltaTime;
-            if (timeToRespawn <= 0)
+            if(timeToRespawn <= 0)
             {
                 Respawn();
             }
         }
-        else
+        if (invincible)
         {
-            BoundaryCheckCircle();
-
-            if (!bmManager.canShotgunShoot)
-                ShootBullet();
-            else
-                FireShotgun();
-
-            //Use the ship motor from a past assignment.
-            Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal_P" + playerNumber), Input.GetAxisRaw("Vertical_P" + playerNumber));
-
-            motor.HandleMovementInput(input);
-
-            if (invincible)
+            invicibilityLeft -= Time.deltaTime;
+            if(invicibilityLeft <= 0)
             {
-                invicibilityLeft -= Time.deltaTime;
-                if (invicibilityLeft <= 0)
-                {
-                    invincible = false;
-                }
+                invincible = false;
             }
         }
+
     }
 
 
     private void ShootBullet()
     {
-        if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot
-            && objectManager.playerBullets.Count < maxBullets)
+        if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot 
+            && currentFireCooldown >= maxFireCooldown)
         {
+            currentFireCooldown = 0;
+
             //shootEvent.Invoke();
             canShoot = false;
             GameObject tempBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
@@ -132,8 +147,10 @@ public class PlayerController : MonoBehaviour
     private void FireShotgun()
     {
         if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot
-            && objectManager.playerBullets.Count < maxBullets)
+            && currentFireCooldown >= maxFireCooldown)
         {
+            currentFireCooldown = 0;
+
             //shootEvent.Invoke();
             canShoot = false;
 
@@ -162,7 +179,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!invincible && (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyBullet"))
+        if(!invincible && (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyBullet"))
         {
             //damageEvent.Invoke();
             KillPlayer();
@@ -176,13 +193,17 @@ public class PlayerController : MonoBehaviour
         AddLives(-1);
     }
     public void Respawn()
-    {
-        if (lives > 0)
-        {
+    {        
+        if(lives > 0)
+        {            
             isDead = false;
             transform.position = initalPosition;
             invincible = true;
             invicibilityLeft = invicibilityTime;
+
+            //DO THE EXPLOSION THING HERE
+            if (safeZoneOnRespawn)
+                safeZoneOnRespawn.ActivateSafeZone();
         }
     }
 
@@ -195,17 +216,14 @@ public class PlayerController : MonoBehaviour
     public void AddScore(int amt)
     {
         score += amt;
-        UIManager.instance.SetScore(playerNumber, score);
     }
     public void AddLives(int amt)
     {
         lives += amt;
-        UIManager.instance.SetLives(playerNumber, lives);
-        if (amt > 0)
+        if(amt > 0)
         {
             AudioManager.instance.Play("GainLives");
-        }
-        else
+        } else
         {
             AudioManager.instance.Play("LoseLives");
         }
@@ -251,6 +269,6 @@ public class PlayerController : MonoBehaviour
 
 
 [System.Serializable]
-public class PlayerDamagedEvent : UnityEvent { }
+public class PlayerDamagedEvent : UnityEvent {}
 [System.Serializable]
 public class PlayerShootEvent : UnityEvent { }
