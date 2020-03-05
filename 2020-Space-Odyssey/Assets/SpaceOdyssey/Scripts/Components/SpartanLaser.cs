@@ -25,6 +25,8 @@ public class SpartanLaser : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
+    public GameObject scorePopUp;
+
 
 
 
@@ -78,6 +80,8 @@ public class SpartanLaser : MonoBehaviour
         {
             if (i == other.gameObject.tag)
             {
+                owner.gameObject.GetComponent<PlayerController>().AddScore(100);
+                Instantiate(scorePopUp, other.transform.position, Quaternion.identity);
                 Destroy(other.gameObject);
             }
         }

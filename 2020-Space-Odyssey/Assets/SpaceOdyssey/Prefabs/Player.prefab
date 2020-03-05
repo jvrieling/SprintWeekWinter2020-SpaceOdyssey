@@ -255,7 +255,7 @@ MonoBehaviour:
   currentLaserDuration: 0
   maxLaserDuration: 6
   currentLaserCooldown: 0
-  maxLaserCooldown: 10
+  maxLaserCooldown: 6
   canLaser: 0
   bmManager: {fileID: 0}
   safeZoneOnRespawn: {fileID: 0}

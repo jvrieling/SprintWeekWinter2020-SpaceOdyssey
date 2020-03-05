@@ -52730,6 +52730,8 @@ MonoBehaviour:
   adjustVector: {x: 0, y: 0.5, z: 0}
   killswitch: 0
   animator: {fileID: 0}
+  scorePopUp: {fileID: 8444306655548680432, guid: 958fdac8e041fe34383db08439ce3902,
+    type: 3}
 --- !u!95 &7009110761416584289
 Animator:
   serializedVersion: 3
