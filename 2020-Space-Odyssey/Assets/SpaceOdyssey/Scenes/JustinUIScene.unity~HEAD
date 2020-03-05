@@ -1180,80 +1180,6 @@ MonoBehaviour:
   maxNumberOfEnemies: 5
   enemySpawner: {fileID: 1821706999}
   isPaused: 0
---- !u!1001 &1249024235
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1829337809106988296, guid: 5c7ad9f45192ce842a6568a924a800a9,
-        type: 3}
-      propertyPath: m_Name
-      value: Spartan Laser
-      objectReference: {fileID: 0}
-    - target: {fileID: 5587197368702079545, guid: 5c7ad9f45192ce842a6568a924a800a9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 5587197368702079545, guid: 5c7ad9f45192ce842a6568a924a800a9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.2446419
-      objectReference: {fileID: 0}
-    - target: {fileID: 5587197368702079545, guid: 5c7ad9f45192ce842a6568a924a800a9,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.43
-      objectReference: {fileID: 0}
-    - target: {fileID: 5587197368702079545, guid: 5c7ad9f45192ce842a6568a924a800a9,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5587197368702079545, guid: 5c7ad9f45192ce842a6568a924a800a9,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5587197368702079545, guid: 5c7ad9f45192ce842a6568a924a800a9,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5587197368702079545, guid: 5c7ad9f45192ce842a6568a924a800a9,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5587197368702079545, guid: 5c7ad9f45192ce842a6568a924a800a9,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5587197368702079545, guid: 5c7ad9f45192ce842a6568a924a800a9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5587197368702079545, guid: 5c7ad9f45192ce842a6568a924a800a9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5587197368702079545, guid: 5c7ad9f45192ce842a6568a924a800a9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7757129499403532495, guid: 5c7ad9f45192ce842a6568a924a800a9,
-        type: 3}
-      propertyPath: maxDuration
-      value: 5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5c7ad9f45192ce842a6568a924a800a9, type: 3}
 --- !u!1 &1269458923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,14 +1801,6 @@ PrefabInstance:
       objectReference: {fileID: 1269458927}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 386caf1642725324dae10e5aa1f4e57e, type: 3}
-<<<<<<< HEAD:2020-Space-Odyssey/Assets/SpaceOdyssey/Scenes/Chris_TestScene_v5.unity
---- !u!1 &2145907364 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7778966281678474069, guid: 56158c2410b9baf48b69097ab4c0aa63,
-    type: 3}
-  m_PrefabInstance: {fileID: 441177716}
-  m_PrefabAsset: {fileID: 0}
-=======
 --- !u!1001 &1997578029298013676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2002,4 +1920,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c797797cc07bc7742a619a10460c45de, type: 3}
->>>>>>> origin/AssembleStuff:2020-Space-Odyssey/Assets/SpaceOdyssey/Scenes/JustinUIScene.unity~HEAD
