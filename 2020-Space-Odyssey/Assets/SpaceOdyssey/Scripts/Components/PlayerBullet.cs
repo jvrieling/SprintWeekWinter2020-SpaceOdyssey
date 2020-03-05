@@ -14,6 +14,7 @@ public class PlayerBullet : MonoBehaviour
         {
             owner.AddScore(100);
             Instantiate(scorePopUp, transform.position, Quaternion.identity);
+            
         }
     }
 

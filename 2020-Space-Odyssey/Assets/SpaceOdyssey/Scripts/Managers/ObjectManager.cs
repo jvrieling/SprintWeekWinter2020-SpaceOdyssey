@@ -51,6 +51,7 @@ public class ObjectManager : MonoBehaviour
     public void RemoveEnemy(MoveDownScreen enemy)
     {
         enemies.Remove(enemy);
+        ScoreCounter.ScoreValue += 100;
     }
     public void RemoveEnemyBullet(EnemyBullet bullet)
     {
