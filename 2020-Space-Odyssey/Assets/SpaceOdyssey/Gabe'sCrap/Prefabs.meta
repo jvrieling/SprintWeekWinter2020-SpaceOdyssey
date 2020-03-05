@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:2020-Space-Odyssey/Assets/SpaceOdyssey/Gabe'sCrap/Prefabs.meta
 guid: b0d3b30954df24c408f9aacf93c16bce
+=======
+guid: d0427b4f755bf6340ad07da6452c229d
+>>>>>>> origin/mechanics/player:2020-Space-Odyssey/Assets/SpaceOdyssey/Sprites/UI/Icons/Utility.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

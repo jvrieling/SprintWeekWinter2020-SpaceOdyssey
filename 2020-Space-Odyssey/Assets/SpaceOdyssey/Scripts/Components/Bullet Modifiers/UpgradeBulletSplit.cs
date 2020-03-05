@@ -20,8 +20,8 @@ public class UpgradeBulletSplit : MonoBehaviour
     public int maxGenerations = 3;
 
     private GameObject copiedObject;
-    
-    
+
+
     void Update()
     {
         if (!isActive)
@@ -38,8 +38,6 @@ public class UpgradeBulletSplit : MonoBehaviour
 
     void SplitSelf()
     {
-        Debug.Log("Splitting!");
-
         currentLifeSpan = 0;
         currentGeneration++;
 
@@ -52,7 +50,7 @@ public class UpgradeBulletSplit : MonoBehaviour
                 GameObject bullet = Instantiate(copiedObject, transform.position, Quaternion.identity);
 
 
-                bullet.transform.Rotate(0, 0, i * (splitAngleInDegrees/(splitCount - 1)) - splitAngleInDegrees/2);
+                bullet.transform.Rotate(0, 0, i * (splitAngleInDegrees / (splitCount - 1)) - splitAngleInDegrees / 2);
 
                 bullet.name = "Split Player Bullet";
             }

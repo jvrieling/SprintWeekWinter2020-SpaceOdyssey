@@ -63,46 +63,46 @@ public class PlayerController : MonoBehaviour
     }
     public bool Getbool()
     { return canShoot; }
-    
+
     void Update()
     {
-        BoundaryCheckCircle();
-
-        if (!bmManager.canShotgunShoot)
-            ShootBullet();
-        else
-            FireShotgun();
-
-        //Use the ship motor from a past assignment.
-        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal_P" + playerNumber), Input.GetAxisRaw("Vertical_P" + playerNumber));
-
-        motor.HandleMovementInput(input);
-
-        
-
         if (isDead)
         {
             timeToRespawn -= Time.deltaTime;
-            if(timeToRespawn <= 0)
+            if (timeToRespawn <= 0)
             {
                 Respawn();
             }
         }
-        if (invincible)
+        else
         {
-            invicibilityLeft -= Time.deltaTime;
-            if(invicibilityLeft <= 0)
+            BoundaryCheckCircle();
+
+            if (!bmManager.canShotgunShoot)
+                ShootBullet();
+            else
+                FireShotgun();
+
+            //Use the ship motor from a past assignment.
+            Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal_P" + playerNumber), Input.GetAxisRaw("Vertical_P" + playerNumber));
+
+            motor.HandleMovementInput(input);
+
+            if (invincible)
             {
-                invincible = false;
+                invicibilityLeft -= Time.deltaTime;
+                if (invicibilityLeft <= 0)
+                {
+                    invincible = false;
+                }
             }
         }
-
     }
 
 
     private void ShootBullet()
     {
-        if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot 
+        if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot
             && objectManager.playerBullets.Count < maxBullets)
         {
             //shootEvent.Invoke();
@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!invincible && (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyBullet"))
+        if (!invincible && (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyBullet"))
         {
             //damageEvent.Invoke();
             KillPlayer();
@@ -176,9 +176,9 @@ public class PlayerController : MonoBehaviour
         AddLives(-1);
     }
     public void Respawn()
-    {        
-        if(lives > 0)
-        {            
+    {
+        if (lives > 0)
+        {
             isDead = false;
             transform.position = initalPosition;
             invincible = true;
@@ -195,14 +195,17 @@ public class PlayerController : MonoBehaviour
     public void AddScore(int amt)
     {
         score += amt;
+        UIManager.instance.SetScore(playerNumber, score);
     }
     public void AddLives(int amt)
     {
         lives += amt;
-        if(amt > 0)
+        UIManager.instance.SetLives(playerNumber, lives);
+        if (amt > 0)
         {
             AudioManager.instance.Play("GainLives");
-        } else
+        }
+        else
         {
             AudioManager.instance.Play("LoseLives");
         }
@@ -248,6 +251,6 @@ public class PlayerController : MonoBehaviour
 
 
 [System.Serializable]
-public class PlayerDamagedEvent : UnityEvent {}
+public class PlayerDamagedEvent : UnityEvent { }
 [System.Serializable]
 public class PlayerShootEvent : UnityEvent { }

@@ -13,8 +13,7 @@ public class PlayerBullet : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             owner.AddScore(100);
-            Instantiate(scorePopUp, transform.position, Quaternion.identity);
-            
+            Instantiate(scorePopUp, transform.position, Quaternion.identity);            
         }
     }
 

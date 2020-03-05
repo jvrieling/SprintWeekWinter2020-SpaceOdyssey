@@ -11,7 +11,6 @@ public class DropModifiersOnDeath : MonoBehaviour
     private void OnDestroy()
     {
         float ranNum = Random.Range(0f, 1f);
-        Debug.Log(ranNum + " " + dropChance);
         if (ranNum < dropChance)
         {
             Instantiate(modifierPrefabs[Random.Range(0, modifierPrefabs.Length)], transform.position, Quaternion.identity);
