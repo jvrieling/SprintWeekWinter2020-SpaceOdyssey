@@ -26,6 +26,14 @@ public class joystickanim : MonoBehaviour
             {
                 animator.SetTrigger("Right");
             }
+            if (Input.GetKeyUp(KeyCode.LeftArrow))
+            {
+                animator.SetTrigger("release");
+            }
+            else if (Input.GetKeyUp(KeyCode.RightArrow))
+            {
+                animator.SetTrigger("release");
+            }
         }
         else if (P2 == true)
         {
@@ -36,6 +44,14 @@ public class joystickanim : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.G))
             {
                 animator.SetTrigger("Right");
+            }
+            if (Input.GetKeyUp(KeyCode.D))
+            {
+                animator.SetTrigger("release");
+            }
+            else if (Input.GetKeyUp(KeyCode.G))
+            {
+                animator.SetTrigger("release");
             }
         }
     }

@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: 6a2867c2c8bce854a874ea580775f054
+guid: c417a2211889f21478e2ddac926ed0af
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2716365450186499767
-    second: The Controller right-Sheet_0
+      213: 8792471299522100391
+    second: The life-Sheet_0
   - first:
-      213: 2987412173374362550
-    second: The Controller right-Sheet_1
+      213: 1182815096132175882
+    second: The life-Sheet_1
   - first:
-      213: -1444873698450157202
-    second: The Controller right-Sheet_2
+      213: -6889070892202347878
+    second: The life-Sheet_2
   - first:
-      213: 188605166641625012
-    second: The Controller right-Sheet_3
-  - first:
-      213: -3233932756528429666
-    second: The Controller right-Sheet_4
+      213: 8250504542293788466
+    second: The life-Sheet_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -137,7 +134,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: The Controller right-Sheet_0
+      name: The life-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -151,14 +148,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d43eee54a5cf9746ba40937c68e18c8
-      internalID: -2716365450186499767
+      spriteID: bed6b54aa4e33a944aa6ac73702b5e7f
+      internalID: 8792471299522100391
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Controller right-Sheet_1
+      name: The life-Sheet_1
       rect:
         serializedVersion: 2
         x: 124
@@ -172,14 +169,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2cffa37f7ae30544bcac4da9403aa53
-      internalID: 2987412173374362550
+      spriteID: 7633f961c99c44040b9ff54bf90962c3
+      internalID: 1182815096132175882
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Controller right-Sheet_2
+      name: The life-Sheet_2
       rect:
         serializedVersion: 2
         x: 248
@@ -193,14 +190,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0866c9755b92d8419dcba41120d38d5
-      internalID: -1444873698450157202
+      spriteID: 90f32354d72145f45bfd10de2a617428
+      internalID: -6889070892202347878
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: The Controller right-Sheet_3
+      name: The life-Sheet_3
       rect:
         serializedVersion: 2
         x: 372
@@ -214,29 +211,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 274d33ecb1c5ec04298c72208cfd6676
-      internalID: 188605166641625012
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: The Controller right-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 496
-        y: 0
-        width: 124
-        height: 124
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3ac95e930904fd544ba5724e347adecf
-      internalID: -3233932756528429666
+      spriteID: a4e829ec2181e8a4f971ec241cb54bdb
+      internalID: 8250504542293788466
       vertices: []
       indices: 
       edges: []
