@@ -85,6 +85,9 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            if (currentFireCooldown < maxFireCooldown)
+                currentFireCooldown += Time.deltaTime;
+
             BoundaryCheckCircle();
 
             if (!bmManager.canShotgunShoot)
@@ -111,8 +114,7 @@ public class PlayerController : MonoBehaviour
 
     private void ShootBullet()
     {
-        if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot 
-            && currentFireCooldown >= maxFireCooldown)
+        if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot && currentFireCooldown >= maxFireCooldown)
         {
             currentFireCooldown = 0;
 
