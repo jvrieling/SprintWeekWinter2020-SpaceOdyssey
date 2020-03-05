@@ -16,16 +16,24 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
 
-    public int currentWave;
+    
+    
 
+    public float delayBeforeNextWave = 5;
 
-    public int currentNumberOfEnemies;
-    public int maxNumberOfEnemies;
+    public int baseEnemyCount = 10;
+    public int enemiesPerWave = 5;
+
+    public float baseTimeBetweenEnemies = 10;
 
     public EnemySpawner enemySpawner;
 
     public bool isPaused = false;
 
+    [Header("READ ONLY")]
+    public int currentWave;
+    public int currentNumberOfEnemies;
+    public int maxNumberOfEnemies;
 
     void Update()
     {
@@ -45,15 +53,12 @@ public class WaveManager : MonoBehaviour
         while (isPaused)
             yield return null;
         
-        float delayBeforeNextWave = 5f;
 
 
         yield return new WaitForSeconds(delayBeforeNextWave);
         
         currentWave++;
 
-        int baseEnemyCount = 10;
-        int enemiesPerWave = 5;
 
         maxNumberOfEnemies = baseEnemyCount + enemiesPerWave * currentWave;
 
@@ -65,7 +70,6 @@ public class WaveManager : MonoBehaviour
 
     void SetEnemySpawnerParameters()
     {
-        float baseTimeBetweenEnemies = 10f;
 
         enemySpawner.enemiesPerSecond = maxNumberOfEnemies;
         enemySpawner.timeBetweenEnemies = baseTimeBetweenEnemies / enemySpawner.enemiesPerSecond;
