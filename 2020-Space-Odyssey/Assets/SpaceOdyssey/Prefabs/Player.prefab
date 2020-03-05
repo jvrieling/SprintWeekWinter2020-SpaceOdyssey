@@ -124,6 +124,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8121033609575038593}
   - component: {fileID: 5965655390489142211}
+  - component: {fileID: 9047504856394700080}
+  - component: {fileID: 4287459684693641231}
   m_Layer: 11
   m_Name: Accents
   m_TagString: Untagged
@@ -194,6 +196,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &9047504856394700080
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569085472099751901}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6d7bff619acac194c8f443ea7ece4f06, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4287459684693641231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569085472099751901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82975b26562b764429d96a35dbc65748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  P1: 0
+  P2: 0
 --- !u!1 &3803032485475235599
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,6 +240,7 @@ GameObject:
   - component: {fileID: 7715757500431887448}
   - component: {fileID: 1632619503463848668}
   - component: {fileID: 8025695605120355981}
+  - component: {fileID: 7428687483357828160}
   m_Layer: 11
   m_Name: ShipBody
   m_TagString: Untagged
@@ -285,7 +321,7 @@ Animator:
   m_GameObject: {fileID: 3803032485475235599}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bb978552c8b10644c95752d781c5ed5d, type: 2}
+  m_Controller: {fileID: 9100000, guid: b122277ad1b4f1141a87c5e982287fb2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -294,6 +330,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7428687483357828160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3803032485475235599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82975b26562b764429d96a35dbc65748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  P1: 0
+  P2: 0
 --- !u!1 &7778966281678474069
 GameObject:
   m_ObjectHideFlags: 0
