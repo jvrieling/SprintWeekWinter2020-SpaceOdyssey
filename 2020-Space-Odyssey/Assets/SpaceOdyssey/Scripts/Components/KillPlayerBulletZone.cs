@@ -6,7 +6,7 @@ public class KillPlayerBulletZone : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "PlayerBullet")
+        if(collision.gameObject.tag == "PlayerBullet" || collision.gameObject.tag == "EnemyBullet")
         {
             Destroy(collision.gameObject);
         }
