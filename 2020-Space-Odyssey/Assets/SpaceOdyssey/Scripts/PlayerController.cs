@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]
     public BulletModifierManager bmManager;
+    [HideInInspector]
+    public SafeZoneOnRespawn safeZoneOnRespawn;
 
     void Awake()
     {
@@ -49,14 +51,17 @@ public class PlayerController : MonoBehaviour
 
         //bullets = new List<PlayerBullet>();
 
-        if (!gameCamera)
+        if (!gameCamera && GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>())
             gameCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
         if (!collider && GetComponent<CircleCollider2D>())
             collider = GetComponent<CircleCollider2D>();
 
-        if (!bmManager)
+        if (!bmManager && GetComponent<BulletModifierManager>())
             bmManager = GetComponent<BulletModifierManager>();
+
+        if (!safeZoneOnRespawn && GetComponent<SafeZoneOnRespawn>())
+            safeZoneOnRespawn = GetComponent<SafeZoneOnRespawn>();
 
         initalPosition = transform.position;
 
@@ -183,6 +188,10 @@ public class PlayerController : MonoBehaviour
             transform.position = initalPosition;
             invincible = true;
             invicibilityLeft = invicibilityTime;
+
+            //DO THE EXPLOSION THING HERE
+            if (safeZoneOnRespawn)
+                safeZoneOnRespawn.ActivateSafeZone();
         }
     }
 
