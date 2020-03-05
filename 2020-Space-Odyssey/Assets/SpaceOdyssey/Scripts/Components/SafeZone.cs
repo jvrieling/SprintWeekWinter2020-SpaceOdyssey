@@ -53,7 +53,7 @@ public class SafeZone : MonoBehaviour
             Color tmp = sprite.color;
 
             //NEED TO FIND PROPER FORMULA
-            tmp.a -= 1/(zoneMaxRetainDuration*0.608f) * Time.deltaTime;
+            tmp.a = zoneRetainDuration / zoneMaxRetainDuration;
 
             sprite.color = tmp;
 

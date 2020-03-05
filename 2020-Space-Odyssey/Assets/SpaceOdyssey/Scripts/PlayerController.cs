@@ -297,19 +297,21 @@ public class PlayerController : MonoBehaviour
 
             float height = edgeVector.y * 2;
             float width = edgeVector.x * 2;
+            float lowerBorder = height * 0.125f;
+            float upperBorder = height * 0.08f;
 
             switch (playerNumber)
             {
                 case 1: //Left side
                     transform.position = new Vector3(Mathf.Clamp(transform.position.x, -width / 2 + collider.radius, 0 - collider.radius),
-                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius, height / 2 - collider.radius),
+                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius + lowerBorder, height / 2 - collider.radius - upperBorder),
                                             transform.position.z);
 
                     break;
 
                 case 2: //Right side
                     transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0 + collider.radius, width / 2 - collider.radius),
-                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius, height / 2 - collider.radius),
+                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius + lowerBorder, height / 2 - collider.radius - upperBorder),
                                             transform.position.z);
                     break;
             }

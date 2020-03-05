@@ -75,6 +75,9 @@ public class SpartanLaser : MonoBehaviour
 
     void CheckForDeadOwner()
     {
+        if (!owner)
+            return;
+
         if (owner.gameObject.GetComponent<PlayerController>().isDead)
             DestroySelf();
     }
