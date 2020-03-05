@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     public ObjectManager objectManager;
 
+    public GameObject deathExplosion;
+    public GameObject respawnExplosion;
     public GameObject bulletPrefab;
     public bool canShoot = true;
     public int maxBullets;
@@ -238,6 +240,7 @@ public class PlayerController : MonoBehaviour
     }
     public void KillPlayer()
     {
+        Instantiate(deathExplosion, transform.position, Quaternion.identity);
         isDead = true;
         timeToRespawn = respawnTime;
         transform.position = new Vector3(-1000, -1000, 0);
@@ -246,11 +249,12 @@ public class PlayerController : MonoBehaviour
     public void Respawn()
     {
         if (lives > 0)
-        {
+        {            
             isDead = false;
             transform.position = initalPosition;
             invincible = true;
             invicibilityLeft = invicibilityTime;
+            Instantiate(respawnExplosion, transform.position, Quaternion.identity);
 
             //DO THE EXPLOSION THING HERE
             if (safeZoneOnRespawn)

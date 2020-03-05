@@ -51,10 +51,10 @@ public class UIManager : MonoBehaviour
     {
         if (player == 1)
         {
-            
+           // p1Modifiers[p1Modifiers.Length] = mod;
         } else if (player == 2)
         {
-            
+            //p2Modifiers[p2Modifiers.Length] = mod;
         }
     }
 
