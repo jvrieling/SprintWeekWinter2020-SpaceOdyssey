@@ -72,6 +72,7 @@ MonoBehaviour:
   collisionTags:
   - PlayerBullet
   - Player
+  - laser
 --- !u!114 &887261995045832077
 MonoBehaviour:
   m_ObjectHideFlags: 0

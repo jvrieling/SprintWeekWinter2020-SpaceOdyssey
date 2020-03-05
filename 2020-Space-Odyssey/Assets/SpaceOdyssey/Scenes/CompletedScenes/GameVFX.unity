@@ -624,6 +624,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 680779249971054753, guid: 656b66c21c4db3342a0b481376039517,
+        type: 3}
+      propertyPath: sounds.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 680779249971054753, guid: 656b66c21c4db3342a0b481376039517,
+        type: 3}
+      propertyPath: sounds.Array.data[15].name
+      value: SpartanLaser
+      objectReference: {fileID: 0}
+    - target: {fileID: 680779249971054753, guid: 656b66c21c4db3342a0b481376039517,
+        type: 3}
+      propertyPath: sounds.Array.data[15].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a0a0ac19826053a438563c93f71d4f86, type: 3}
+    - target: {fileID: 680779249971054753, guid: 656b66c21c4db3342a0b481376039517,
+        type: 3}
+      propertyPath: sounds.Array.data[15].volume
+      value: 0.976
+      objectReference: {fileID: 0}
+    - target: {fileID: 680779249971054753, guid: 656b66c21c4db3342a0b481376039517,
+        type: 3}
+      propertyPath: sounds.Array.data[15].volumeVariance
+      value: 0.058
+      objectReference: {fileID: 0}
+    - target: {fileID: 680779249971054753, guid: 656b66c21c4db3342a0b481376039517,
+        type: 3}
+      propertyPath: sounds.Array.data[15].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 680779249971054753, guid: 656b66c21c4db3342a0b481376039517,
+        type: 3}
+      propertyPath: sounds.Array.data[15].pitchVariance
+      value: 0.076
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 656b66c21c4db3342a0b481376039517, type: 3}
 --- !u!1001 &1161991588
@@ -692,6 +727,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049516971520034536, guid: 5fc3eda6d346e2946a74b378ea508061,
+        type: 3}
+      propertyPath: playerSpeedMultiplier
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049516971520034536, guid: 5fc3eda6d346e2946a74b378ea508061,
+        type: 3}
+      propertyPath: speedMultiplier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049516971497298805, guid: 5fc3eda6d346e2946a74b378ea508061,
+        type: 3}
+      propertyPath: playerSpeedMultiplier
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5049516971497298805, guid: 5fc3eda6d346e2946a74b378ea508061,
+        type: 3}
+      propertyPath: speedMultiplier
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3307626129432769809, guid: 5fc3eda6d346e2946a74b378ea508061,
         type: 3}
