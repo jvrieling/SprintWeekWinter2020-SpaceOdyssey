@@ -43,6 +43,14 @@ public class PlayerController : MonoBehaviour
     public int shotgunPelletCount = 3;
     public float pelletAngleInDegrees = 45f;
 
+    [Header("Spartan Laser Modifiers")]
+    public GameObject laserPrefab;
+    public float currentLaserDuration;
+    public float maxLaserDuration = 10f;
+    public float currentLaserCooldown;
+    public float maxLaserCooldown = 10f; //Cooldown adds the maxLaserDuration to its total value.
+    public bool canLaser = false;
+
     [HideInInspector]
     public BulletModifierManager bmManager;
     [HideInInspector]
@@ -90,12 +98,18 @@ public class PlayerController : MonoBehaviour
             if (currentFireCooldown < maxFireCooldown)
                 currentFireCooldown += Time.deltaTime;
 
+            if (currentLaserCooldown < maxLaserCooldown)
+                currentLaserCooldown += Time.deltaTime;
+
             BoundaryCheckCircle();
 
             if (!bmManager.canShotgunShoot)
                 ShootBullet();
             else
                 FireShotgun();
+
+            if (bmManager.canSpartanLaser)
+                FireSpartanLaser();
 
             //Use the ship motor from a past assignment.
             Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal_P" + playerNumber), Input.GetAxisRaw("Vertical_P" + playerNumber));
@@ -116,6 +130,9 @@ public class PlayerController : MonoBehaviour
 
     private void ShootBullet()
     {
+        if (currentLaserCooldown < 0)
+            return;
+
         if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot && currentFireCooldown >= maxFireCooldown)
         {
             currentFireCooldown = 0;
@@ -146,6 +163,9 @@ public class PlayerController : MonoBehaviour
      */
     private void FireShotgun()
     {
+        if (currentLaserCooldown < 0)
+            return;
+
         if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot
             && currentFireCooldown >= maxFireCooldown)
         {
@@ -176,6 +196,39 @@ public class PlayerController : MonoBehaviour
             canShoot = true;
         }
     }
+
+
+    /* FireSpartanLaser
+     * ----------------
+     * Functions very similar to shooting a bullet, but
+     * with a different prefab and button.
+     */
+    void FireSpartanLaser()
+    {
+
+        if (Input.GetAxisRaw("Fire2_P" + playerNumber) == 1 && currentLaserCooldown >= maxLaserCooldown)
+        {
+            currentLaserCooldown = 0 - maxLaserDuration;
+
+            GameObject prefab = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+
+            prefab.name = "Player Spartan Laser";
+
+            SpartanLaser laser = prefab.GetComponentInChildren<SpartanLaser>();
+
+            laser.owner = transform;
+            laser.maxDuration = maxLaserDuration;
+
+
+            AudioManager.instance.Play("Laser");
+        }
+        else if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 0)
+        {
+
+        }
+    }
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -248,19 +301,21 @@ public class PlayerController : MonoBehaviour
 
             float height = edgeVector.y * 2;
             float width = edgeVector.x * 2;
+            float lowerBorder = height * 0.125f;
+            float upperBorder = height * 0.08f;
 
             switch (playerNumber)
             {
                 case 1: //Left side
                     transform.position = new Vector3(Mathf.Clamp(transform.position.x, -width / 2 + collider.radius, 0 - collider.radius),
-                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius, height / 2 - collider.radius),
+                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius + lowerBorder, height / 2 - collider.radius - upperBorder),
                                             transform.position.z);
 
                     break;
 
                 case 2: //Right side
                     transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0 + collider.radius, width / 2 - collider.radius),
-                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius, height / 2 - collider.radius),
+                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius + lowerBorder, height / 2 - collider.radius - upperBorder),
                                             transform.position.z);
                     break;
             }

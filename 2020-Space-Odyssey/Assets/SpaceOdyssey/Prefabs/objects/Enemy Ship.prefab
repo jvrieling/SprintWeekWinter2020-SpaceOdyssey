@@ -121,6 +121,7 @@ MonoBehaviour:
   - {fileID: 6769692364220286112, guid: 1fefe44f6753a344b95d595f3ee36840, type: 3}
   - {fileID: 6939975233079002267, guid: d26caa73acbe7614c85b996e05a83091, type: 3}
   - {fileID: 5728937545738835251, guid: bca5c2aa5b25af042899d602389b68f3, type: 3}
+  - {fileID: 5728937545738835251, guid: 9604bf937a75fa24f8581da42c87e9e9, type: 3}
   dropChance: 0.3
 --- !u!58 &9011913843496692689
 CircleCollider2D:
