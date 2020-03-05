@@ -71,7 +71,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -2257927060192065610, guid: 10b9854f257a8b54f855526eedbdb82c,
+    type: 3}
   m_Color: {r: 0, g: 1, b: 0.86033463, a: 0.53333336}
   m_FlipX: 0
   m_FlipY: 0
@@ -117,4 +118,5 @@ MonoBehaviour:
   zoneMaxRadius: 0
   zoneDuration: 0
   zoneRetainDuration: 0
+  zoneMaxRetainDuration: 0
   collider2D: {fileID: 0}
