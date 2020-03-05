@@ -12,7 +12,9 @@ public class UIManager : MonoBehaviour
     [Header("Player 1")]
     public Text p1Score;
     public Text p1Lives;
+    public bool[] p1ModifierDisplayed; 
     public string[] p1Modifiers;
+    private int p1ModifierCount = 0;
     public Image[] p1ModifierSlots;
     private int p1OccupiedSlots = 0;
 
@@ -27,10 +29,14 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        p1Modifiers = new string[8];
+        p2Modifiers = new string[8];
+        p1ModifierDisplayed = new bool[8];
     }
 
     private void Update()
     {
+        /*
         p1OccupiedSlots = 0;
         foreach(string i in p1Modifiers)
         {
@@ -44,18 +50,57 @@ public class UIManager : MonoBehaviour
                     Debug.Log("Occupued slots " + p1OccupiedSlots);
                 }
             }
+        }*/
+
+        for(int i = 0; i < p1ModifierSlots.Length; i++)
+        {
+            if (p1ModifierDisplayed[i])
+            {
+                p1ModifierSlots[i].color = new Color(1, 1, 1, 1);
+            } else
+            {
+                p1ModifierSlots[i].color = new Color(1, 1, 1, 0);
+            }
         }
+
     }
 
     public void AddModifier(int player, string mod)
     {
         if (player == 1)
         {
-           // p1Modifiers[p1Modifiers.Length] = mod;
+            switch (mod)
+            {
+                case "multiShot":
+                    p1ModifierDisplayed[0] = true;
+                    break;
+                case "splitShot":
+                    p1ModifierDisplayed[7] = true;
+                    break;
+                case "decreaseMoveSpeed":
+                    p1ModifierDisplayed[6] = true;
+                    break;
+                case "increaseMoveSpeed":
+                    p1ModifierDisplayed[1] = true;
+                    break;
+                case "fasterEnemies":
+                    p1ModifierDisplayed[2] = true;
+                    break;
+                case "megaLazer":
+                    p1ModifierDisplayed[3] = true;
+                    break;
+            }
+        }
+
+        /*Debug.Log(p1Modifiers.Length);
+        if (player == 1)
+        {
+           p1Modifiers[p1ModifierCount] = mod;
+           p1ModifierCount++;
         } else if (player == 2)
         {
-            //p2Modifiers[p2Modifiers.Length] = mod;
-        }
+           p2Modifiers[p2Modifiers.Length] = mod;
+        }*/
     }
 
     public void SetLives(int player, int amt)

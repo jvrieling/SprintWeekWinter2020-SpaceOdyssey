@@ -31,7 +31,6 @@ public class SafeZoneOnRespawn : MonoBehaviour
      */
     public void ActivateSafeZone()
     {
-        Debug.Log("Spawned a SAFE ZONE!");
         GameObject prefab = Instantiate(safeZonePrefab, transform);
         prefab.transform.parent = null;
 
