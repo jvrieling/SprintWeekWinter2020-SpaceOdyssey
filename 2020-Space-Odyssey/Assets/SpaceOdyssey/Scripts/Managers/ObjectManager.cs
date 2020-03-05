@@ -62,6 +62,5 @@ public class ObjectManager : MonoBehaviour
         float finalSpeed = player.GetComponent<ShipMotor>().baseMaxSpeed * multiplier;
 
         player.GetComponent<ShipMotor>().MaxSpeed = finalSpeed;
-        Debug.Log(player.name + "'s max speed modified to " + multiplier * 100 + "%.");
     }
 }
