@@ -246,6 +246,8 @@ MonoBehaviour:
   respawnTime: 1
   invincible: 0
   invicibilityTime: 2
+  currentFireCooldown: 0
+  maxFireCooldown: 0.25
   shotgunPelletCount: 3
   pelletAngleInDegrees: 45
   bmManager: {fileID: 0}
