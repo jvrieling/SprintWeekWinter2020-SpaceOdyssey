@@ -32,6 +32,14 @@ public class PlayerController : MonoBehaviour
     public float invicibilityTime = 2;
     private float invicibilityLeft;
 
+    //Gun Modifiers
+    [Header("Shotgun Modifiers")]
+    public int shotgunPelletCount = 3;
+    public float pelletAngleInDegrees = 45f;
+
+    [HideInInspector]
+    public BulletModifierManager bmManager;
+
     void Awake()
     {
         motor = GetComponent<ShipMotor>();
@@ -47,6 +55,9 @@ public class PlayerController : MonoBehaviour
         if (!collider && GetComponent<CircleCollider2D>())
             collider = GetComponent<CircleCollider2D>();
 
+        if (!bmManager)
+            bmManager = GetComponent<BulletModifierManager>();
+
         initalPosition = transform.position;
 
     }
@@ -57,25 +68,17 @@ public class PlayerController : MonoBehaviour
     {
         BoundaryCheckCircle();
 
+        if (!bmManager.canShotgunShoot)
+            ShootBullet();
+        else
+            FireShotgun();
+
         //Use the ship motor from a past assignment.
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal_P" + playerNumber), Input.GetAxisRaw("Vertical_P" + playerNumber));
 
         motor.HandleMovementInput(input);
 
-        if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot && objectManager.playerBullets.Count < maxBullets)
-        {
-            //shootEvent.Invoke();
-            canShoot = false;
-            GameObject tempBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-            tempBullet.name = "Player Bullet";
-            tempBullet.GetComponent<PlayerBullet>().owner = this;
-            objectManager.playerBullets.Add(tempBullet.GetComponent<PlayerBullet>());
-            AudioManager.instance.Play("Laser");
-        }
-        else if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 0)
-        {
-            canShoot = true;
-        }
+        
 
         if (isDead)
         {
@@ -95,6 +98,68 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+
+    private void ShootBullet()
+    {
+        if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot 
+            && objectManager.playerBullets.Count < maxBullets)
+        {
+            //shootEvent.Invoke();
+            canShoot = false;
+            GameObject tempBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+            tempBullet.name = "Player Bullet";
+            tempBullet.GetComponent<PlayerBullet>().owner = this;
+
+            if (bmManager.canBulletSplit)
+                tempBullet.GetComponent<UpgradeBulletSplit>().isActive = true;
+
+            objectManager.playerBullets.Add(tempBullet.GetComponent<PlayerBullet>());
+            AudioManager.instance.Play("Laser");
+        }
+        else if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 0)
+        {
+            canShoot = true;
+        }
+    }
+
+    /* FireShotgun
+     * -----------
+     * Basically the same as ShootBullet, but with a for loop.
+     * Separated into a new method in case we want to sort
+     * modifiers by gun types.
+     */
+    private void FireShotgun()
+    {
+        if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 1 && canShoot
+            && objectManager.playerBullets.Count < maxBullets)
+        {
+            //shootEvent.Invoke();
+            canShoot = false;
+
+            for (int i = 0; i < shotgunPelletCount; i++)
+            {
+                GameObject tempBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+                tempBullet.name = "Player Bullet";
+                tempBullet.GetComponent<PlayerBullet>().owner = this;
+
+                tempBullet.transform.Rotate(0, 0, i * (pelletAngleInDegrees / (shotgunPelletCount - 1)) - pelletAngleInDegrees / 2);
+
+                if (bmManager.canBulletSplit)
+                    tempBullet.GetComponent<UpgradeBulletSplit>().isActive = true;
+
+                objectManager.playerBullets.Add(tempBullet.GetComponent<PlayerBullet>());
+            }
+
+
+            AudioManager.instance.Play("Laser");
+        }
+        else if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 0)
+        {
+            canShoot = true;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(!invincible && (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyBullet"))
@@ -107,14 +172,13 @@ public class PlayerController : MonoBehaviour
     {
         isDead = true;
         timeToRespawn = respawnTime;
-        transform.position = new Vector3(-1000, -1000, 1000);
+        transform.position = new Vector3(-1000, -1000, 0);
         AddLives(-1);
     }
     public void Respawn()
     {        
         if(lives > 0)
-        {
-            
+        {            
             isDead = false;
             transform.position = initalPosition;
             invincible = true;
@@ -131,7 +195,6 @@ public class PlayerController : MonoBehaviour
     public void AddScore(int amt)
     {
         score += amt;
-        //AudioManager.instance.Play("Points");
     }
     public void AddLives(int amt)
     {
@@ -152,26 +215,29 @@ public class PlayerController : MonoBehaviour
      */
     void BoundaryCheckCircle()
     {
-        Vector2 topRightCorner = new Vector2(1, 1);
-        Vector2 edgeVector = gameCamera.ViewportToWorldPoint(topRightCorner);
-
-        float height = edgeVector.y * 2;
-        float width = edgeVector.x * 2;
-
-        switch(playerNumber) 
+        if (!isDead)
         {
-            case 1: //Left side
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x, -width / 2 + collider.radius, 0 - collider.radius),
-                                        Mathf.Clamp(transform.position.y, -height / 2 + collider.radius, height / 2 - collider.radius),
-                                        transform.position.z);
+            Vector2 topRightCorner = new Vector2(1, 1);
+            Vector2 edgeVector = gameCamera.ViewportToWorldPoint(topRightCorner);
 
-                break;
+            float height = edgeVector.y * 2;
+            float width = edgeVector.x * 2;
 
-            case 2: //Right side
-                transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0 + collider.radius, width / 2 - collider.radius),
-                                        Mathf.Clamp(transform.position.y, -height / 2 + collider.radius, height / 2 - collider.radius),
-                                        transform.position.z);
-                break;
+            switch (playerNumber)
+            {
+                case 1: //Left side
+                    transform.position = new Vector3(Mathf.Clamp(transform.position.x, -width / 2 + collider.radius, 0 - collider.radius),
+                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius, height / 2 - collider.radius),
+                                            transform.position.z);
+
+                    break;
+
+                case 2: //Right side
+                    transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0 + collider.radius, width / 2 - collider.radius),
+                                            Mathf.Clamp(transform.position.y, -height / 2 + collider.radius, height / 2 - collider.radius),
+                                            transform.position.z);
+                    break;
+            }
         }
     }
 

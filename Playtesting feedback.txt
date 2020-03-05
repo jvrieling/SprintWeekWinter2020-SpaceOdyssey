@@ -1,0 +1,5 @@
+PLAYTEST 1:
+
+66% accuracy understanding icons
+Found bug where player was no longer able to fire
+Didn't realize powerups with red highlights were bad
