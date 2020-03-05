@@ -234,6 +234,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectManager: {fileID: 0}
+  deathExplosion: {fileID: 9020415161569957340, guid: d8795673b4246684487019b3e0eea030,
+    type: 3}
+  respawnExplosion: {fileID: 3678100196036486602, guid: 42038ec8a29e4a04b9e47246fe58aa50,
+    type: 3}
   bulletPrefab: {fileID: 4952203565014493786, guid: 5acf0ab2f5c3dca42ab677e68803b485,
     type: 3}
   canShoot: 1

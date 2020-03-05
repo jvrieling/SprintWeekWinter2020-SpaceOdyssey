@@ -36,10 +36,11 @@ public class ModifierManager : MonoBehaviour
     public void ToggleModifier(string mod)
     {
         BulletModifierManager bulMod = objects.player.GetComponent<BulletModifierManager>();
+        UIManager.instance.AddModifier(objects.player.GetComponent<PlayerController>().playerNumber, mod);
         switch (mod)
         {
             case "splitShot":
-                bulMod.canBulletSplit = true;
+                bulMod.canBulletSplit = true;                
                 break;
             case "multiShot":
                 bulMod.canShotgunShoot = true;
