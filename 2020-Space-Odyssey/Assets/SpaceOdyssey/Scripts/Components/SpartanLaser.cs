@@ -53,6 +53,7 @@ public class SpartanLaser : MonoBehaviour
             DestroySelf();
 
         FollowOwner();
+        CheckForDeadOwner();
     }
     
 
@@ -70,6 +71,12 @@ public class SpartanLaser : MonoBehaviour
             Debug.Log("Following Player");
             transform.parent.position = owner.position + adjustVector;
         }
+    }
+
+    void CheckForDeadOwner()
+    {
+        if (owner.gameObject.GetComponent<PlayerController>().isDead)
+            DestroySelf();
     }
 
 

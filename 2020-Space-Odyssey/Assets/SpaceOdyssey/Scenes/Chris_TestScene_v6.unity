@@ -713,6 +713,11 @@ PrefabInstance:
       propertyPath: canSpartanLaser
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3062574162018019907, guid: 5fc3eda6d346e2946a74b378ea508061,
+        type: 3}
+      propertyPath: canSpartanLaser
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fc3eda6d346e2946a74b378ea508061, type: 3}
 --- !u!1001 &1407836241
