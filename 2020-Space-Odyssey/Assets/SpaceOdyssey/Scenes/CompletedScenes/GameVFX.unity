@@ -693,10 +693,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3307626129432769809, guid: 5fc3eda6d346e2946a74b378ea508061,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.03
+      objectReference: {fileID: 0}
     - target: {fileID: 3307626129432769811, guid: 5fc3eda6d346e2946a74b378ea508061,
         type: 3}
       propertyPath: maxFireCooldown
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3307626129181467069, guid: 5fc3eda6d346e2946a74b378ea508061,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.03
       objectReference: {fileID: 0}
     - target: {fileID: 3307626129181467071, guid: 5fc3eda6d346e2946a74b378ea508061,
         type: 3}
