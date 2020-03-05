@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/SpaceOdyssey/Scenes/PrototypeScene_Wednesday.unity
     guid: 9df28dd7c45722b4797946e2a2f1e609
   - enabled: 1
-    path: Assets/SpaceOdyssey/Scenes/V2_JustinTestScene.unity
+    path: Assets/SpaceOdyssey/Scenes/VFXSetup.unity
     guid: 3a3b3fc1a1adfa440b318ce3b911ebfd
   m_configObjects: {}

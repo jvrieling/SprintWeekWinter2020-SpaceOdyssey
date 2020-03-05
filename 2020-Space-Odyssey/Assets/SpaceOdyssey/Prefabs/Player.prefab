@@ -245,6 +245,8 @@ MonoBehaviour:
   respawnTime: 1
   invincible: 0
   invicibilityTime: 2
+  shotgunPelletCount: 3
+  pelletAngleInDegrees: 45
   bmManager: {fileID: 0}
 --- !u!114 &7823612472250831875
 MonoBehaviour:
@@ -289,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b93fcf335c7fd5146a576429980e78df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 2209518655477985575, guid: ce4676e0c0b3df74f9264fa8dd285402,
+  explosionPrefab: {fileID: 9020415161569957340, guid: d8795673b4246684487019b3e0eea030,
     type: 3}
   explosionScale: 3
   collisionTags:
