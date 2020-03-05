@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 7778966281678474067}
   - component: {fileID: 7823612472250831875}
   - component: {fileID: 7778966281678474068}
+  - component: {fileID: 2641340677033634697}
   - component: {fileID: 5319418248685252463}
   - component: {fileID: 6917849356131765044}
   - component: {fileID: 309521403}
@@ -245,7 +246,10 @@ MonoBehaviour:
   respawnTime: 1
   invincible: 0
   invicibilityTime: 2
+  shotgunPelletCount: 3
+  pelletAngleInDegrees: 45
   bmManager: {fileID: 0}
+  safeZoneOnRespawn: {fileID: 0}
 --- !u!114 &7823612472250831875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +281,24 @@ MonoBehaviour:
   DecelerationTime: 0.5
   baseMaxSpeed: 3
   MaxSpeed: 3
+--- !u!114 &2641340677033634697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778966281678474069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb34b092d89d6945978da10b216910d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoneBaseRadius: 1
+  zoneMaxRadius: 30
+  zoneDuration: 1
+  zoneRetainDuration: 3
+  playerController: {fileID: 0}
+  safeZonePrefab: {fileID: 0}
 --- !u!114 &5319418248685252463
 MonoBehaviour:
   m_ObjectHideFlags: 0
