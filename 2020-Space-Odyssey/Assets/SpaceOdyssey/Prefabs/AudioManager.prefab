@@ -180,3 +180,12 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - name: SpartanLaser
+    clip: {fileID: 8300000, guid: 9745c4fedec439d41ad5c0c3c7320f7c, type: 3}
+    volume: 0.976
+    volumeVariance: 0.058
+    pitch: 1
+    pitchVariance: 0.076
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}

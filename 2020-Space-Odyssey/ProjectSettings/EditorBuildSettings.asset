@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/SpaceOdyssey/Scenes/VFXSetup.unity
     guid: 3a3b3fc1a1adfa440b318ce3b911ebfd
   - enabled: 1
+    path: Assets/SpaceOdyssey/Scenes/CompletedScenes/Title.unity
+    guid: ea9f9efc119723c4399b17a20000cb6d
+  - enabled: 1
     path: Assets/SpaceOdyssey/Scenes/CompletedScenes/GameVFX.unity
     guid: ab63633459c7f5747a4aec0f66d10ef8
   m_configObjects: {}

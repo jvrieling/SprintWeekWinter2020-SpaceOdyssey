@@ -205,9 +205,10 @@ public class PlayerController : MonoBehaviour
      */
     void FireSpartanLaser()
     {
-
+        
         if (Input.GetAxisRaw("Fire2_P" + playerNumber) == 1 && currentLaserCooldown >= maxLaserCooldown)
         {
+            iTween.ShakePosition(Camera.main.gameObject, iTween.Hash("amount", new Vector3(0.1f, 0.1f, 0.1f), "time", 5f));
             currentLaserCooldown = 0 - maxLaserDuration;
 
             GameObject prefab = Instantiate(laserPrefab, transform.position, Quaternion.identity);
@@ -220,7 +221,7 @@ public class PlayerController : MonoBehaviour
             laser.maxDuration = maxLaserDuration;
 
 
-            AudioManager.instance.Play("Laser");
+            AudioManager.instance.Play("SpartanLaser");
         }
         else if (Input.GetAxisRaw("Fire1_P" + playerNumber) == 0)
         {
