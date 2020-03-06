@@ -208,7 +208,7 @@ public class PlayerController : MonoBehaviour
         
         if (Input.GetAxisRaw("Fire2_P" + playerNumber) == 1 && currentLaserCooldown >= maxLaserCooldown)
         {
-            iTween.ShakePosition(Camera.main.gameObject, iTween.Hash("amount", new Vector3(0.1f, 0.1f, 0.1f), "time", 5f));
+            iTween.ShakePosition(Camera.main.gameObject, iTween.Hash("amount", new Vector3(0.1f, 0.1f, 0.1f), "time", 6f));
             currentLaserCooldown = 0 - maxLaserDuration;
 
             GameObject prefab = Instantiate(laserPrefab, transform.position, Quaternion.identity);
