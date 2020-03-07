@@ -9,6 +9,15 @@ public class EnemySpawner : MonoBehaviour
     public float enemiesPerSecond;
 
     public GameObject[] enemyPrefabs;
+
+    public GameObject[] enemyPrefabs_T1;
+    public GameObject[] enemyPrefabs_T2;
+    [Space]
+    public int waves_T1 = 2;
+    public int waves_T2 = 4;
+    public int waves_FINAL = 6;
+
+    [Space]
     public ObjectManager objects;
 
     private float timeSinceLastEnemy;
@@ -20,6 +29,7 @@ public class EnemySpawner : MonoBehaviour
 
     public WaveManager waveManager;
     public bool canSpawnEnemies = true;
+
 
     private void Awake()
     {
@@ -47,10 +57,41 @@ public class EnemySpawner : MonoBehaviour
                 Random.Range(collBounds.min.z, collBounds.max.z)
             );
 
-            MoveDownScreen tempEnemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], transform).GetComponent<MoveDownScreen>();
-            tempEnemy.gameObject.transform.position = spawnPos;
-            tempEnemy.gameObject.GetComponent<Object>().owner = objects;
-            objects.RegisterEnemy(tempEnemy);
+            MoveDownScreen tempEnemy;
+
+            //SCUFFED AS FUCK WAVE SYSTEM BUT MY BRAIN HURT RN
+
+            if (waveManager.currentWave <= waves_T1)
+            {
+                tempEnemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs_T1.Length)], transform).GetComponent<MoveDownScreen>();
+                tempEnemy.gameObject.transform.position = spawnPos;
+                tempEnemy.gameObject.GetComponent<Object>().owner = objects;
+                objects.RegisterEnemy(tempEnemy);
+
+                return;
+            }
+
+            if (waveManager.currentWave > waves_T1)
+            {
+                tempEnemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs_T2.Length)], transform).GetComponent<MoveDownScreen>();
+                tempEnemy.gameObject.transform.position = spawnPos;
+                tempEnemy.gameObject.GetComponent<Object>().owner = objects;
+                objects.RegisterEnemy(tempEnemy);
+
+                return;
+            }
+
+            if (waveManager.currentWave > waves_T2)
+            {
+                tempEnemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], transform).GetComponent<MoveDownScreen>();
+                tempEnemy.gameObject.transform.position = spawnPos;
+                tempEnemy.gameObject.GetComponent<Object>().owner = objects;
+                objects.RegisterEnemy(tempEnemy);
+
+                return;
+            }
+
+
         }
     }
 }
